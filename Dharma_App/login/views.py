@@ -5,37 +5,12 @@ from django.contrib.auth.models import User
 from login.models import UserData
 
 # Create your views here.
+#
+#View for rendering the homepage
 def homepage(request):
     return render(request, 'login/index.html')
 
-# def register(request):
-
-    # form = CreateUserForm()
-
-    # if request.method == "POST":
-
-    #     form = CreateUserForm(request.POST)
-
-        # if form.is_valid():
-            
-        #     form.save()
-
-        #     return redirect("homepage")
-
-        # if form.is_valid():
-        #     form.save()
-        #     username = form.cleaned_data.get('username')
-        #     phone_number = form.cleaned_data.get('phone_number')
-        #     gender = form.cleaned_data.get('gender')
-        #     user = User.objects.get(username=username)
-        #     user_data = UserData.objects.create(user=user, phone_number=phone_number, gender=gender)
-        #     user_data.save()
-        #     return redirect('homepage')
-    
-    # context = {'registerform':form}
-
-    # return render(request, 'login/register.html', context=context)
-
+# View for user registration
 def register(request):
 
     if request.method == "POST":
@@ -59,8 +34,10 @@ def register(request):
 
     return render(request, 'login/register.html')
 
+# View for rendering the custom login page
 def my_login(request):
     return render(request, 'login/my_login.html')
 
+# View for rendering the user dashboard
 def dashboard(request):
     return render(request, 'login/dashboard.html')

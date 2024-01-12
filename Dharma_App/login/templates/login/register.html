@@ -96,40 +96,55 @@
                             <div class="col-lg-10 col-xl-7 mx-auto">
                                 <h3 class="display-4 mt-sm-4">Register</h3>
                                 <p class="text-muted mb-4">New to Dharmam Saranam Gachhyami? Register Here.</p>
-                                <form method="" action="">
-                                    
-                                    <div class="form-group mb-3">
-                                        <input id="name" type="text" placeholder="Your Name" autofocus=""
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4"
-                                        name="name" value="" autocomplete="name" autofocus>
-                                    </div>
+                                <form method="POST" action="">
+                                    {% csrf_token %}
+
                                     <div class="form-group mb-3">
                                         <input id="email" type="email" placeholder="Your Email Address"
                                         class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
                                         name="email" value="" autocomplete="email">
                                     </div>
+
                                     <div class="form-group mb-3">
-                                        <input id="password" type="password" placeholder="Your Password"
+                                        <input id="username" type="text" placeholder="Your Username"
                                         class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="password" autocomplete="new-password">
+                                        name="username" value="" autocomplete="username">
                                     </div>
+
                                     <div class="form-group mb-3">
-                                        <input id="password-confirm" type="password" placeholder="Confirm Password"
+                                        <input id="phone_number" type="text" placeholder="Your Phone Number"
                                         class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="password_confirmation" autocomplete="new-password">
+                                        name="phone_number" value="" autocomplete="phone_number">
                                     </div>
+
                                     <div class="form-group mb-3">
-                                        <select class="form-select form-select-md mb-3 rounded-pill border-0 shadow-sm px-4 text-dark" aria-label=".form-select-lg example">
-                                            <option selected>--Seller Type--</option>
-                                            <option value="1">One</option>
-                                            <option value="2">Two</option>
-                                            <option value="3">Three</option>
+                                        <input id="password1" type="password" placeholder="Your Password"
+                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
+                                        name="password1" value="" autocomplete="password1">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <input id="password2" type="password" placeholder="Confirm Password"
+                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
+                                        name="password2" value="" autocomplete="password2">
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        <select class="form-select form-select-md mb-3 rounded-pill border-0 shadow-sm px-4 text-dark" aria-label=".form-select-lg example" name="role">
+                                            <option selected disabled>--Type of user--</option>
+                                            <option value="Cust">Customer</option>
+                                            <option value="Pack">Package Provider</option>
+                                            <option value="Prod">Product Seller</option>
                                         </select>
                                         
                                     </div>
                                     
-                                    <button type="submit"
+                                    <!----Reference register form from views register------------->
+                                    <!-- {{registerform.as_p}} -->
+                                    
+                                    <button type="submit" value="Register"
                                     class="btn btn-primary btn-block text-uppercase mb-2 w-100 rounded-pill shadow-sm p-2">Register</button>
+                                    
                                 </form>
                             </div>
                         </div>

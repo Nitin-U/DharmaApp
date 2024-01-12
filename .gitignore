@@ -1,1 +1,4 @@
 Dharma_App/db.sqlite3
+Dharma_App/login/__pycache__/
+__pycache__/
+migrations/

@@ -3,9 +3,15 @@ from django.shortcuts import render, redirect
 from . forms import CreateUserForm
 from django.contrib.auth.models import User
 from login.models import UserData
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 #
+# View for rendering the user dashboard
+def basepage(request):
+    return render(request, 'login/base.html')
+
 #View for rendering the homepage
 def homepage(request):
     return render(request, 'login/index.html')
@@ -36,8 +42,32 @@ def register(request):
 
 # View for rendering the custom login page
 def my_login(request):
-    return render(request, 'login/my_login.html')
+
+    form = CreateUserForm()
+
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password1']
+
+        user = authenticate(username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            return render(request, 'login/index.html', {'username': username})
+
+        else:
+            messages.error(request, "Credential does not match")
+
+    context = {'loginform': form}
+
+    return render(request, 'login/my_login.html', context)
 
 # View for rendering the user dashboard
 def dashboard(request):
-    return render(request, 'login/dashboard.html')
+    return render(request, 'login/contact.html')
+
+# View for Logging Out
+def my_logout(request):
+    logout(request)
+    messages.success(request, "Logged Out Successfully.")
+    return redirect('my_login')

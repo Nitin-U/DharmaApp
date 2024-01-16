@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from . forms import CreateUserForm
+from . forms import CreateUserForm, UserProfileForm, UserDataForm
 from django.contrib.auth.models import User
 from login.models import UserData
 from django.contrib.auth import authenticate, login, logout
@@ -62,9 +62,36 @@ def my_login(request):
 
     return render(request, 'login/my_login.html', context)
 
+def update_user(request):
+
+    if request.user.is_authenticated:
+
+        current_user = User.objects.get(id = request.user.id)
+        user_data = UserData.objects.get(user = current_user)
+
+        if request.method == 'POST':
+            current_user_form = UserProfileForm(request.POST or None, instance = current_user)
+            user_data_form = UserDataForm(request.POST or None, instance = user_data)
+
+            if current_user_form.is_valid() and user_data_form.is_valid():
+                current_user_form.save()
+                user_data_form.save()
+                messages.success(request, 'Profile updated successfully')
+                return redirect('dashboard')
+        else:
+            current_user_form = UserProfileForm(instance = current_user)
+            user_data_form = UserDataForm(instance = user_data)
+
+        return render(request, 'login/update_profile.html', {'form_user':current_user_form, 'form_userData':user_data_form})
+    
+    else:
+
+        messages.success(request, ("You must be logged in to update profile"))
+    
+
 # View for rendering the user dashboard
 def dashboard(request):
-    return render(request, 'login/contact.html')
+    return render(request, 'login/dashboard.html')
 
 # View for Logging Out
 def my_logout(request):

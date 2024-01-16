@@ -24,8 +24,27 @@ class CreateUserForm(UserCreationForm):
 
     phone_number = forms.CharField()
     role = forms.ChoiceField(choices=UserData.USER_CHOICES)
-    
+
     class Meta:
 
         model = User
         fields = ['username', 'phone_number', 'role', 'email', 'password1', 'password2']
+
+# UserProfileForm function to render fields from User Model during User Update on user profile form
+class UserProfileForm(forms.ModelForm):
+    username = forms.CharField(max_length=20, required=True)
+    email = forms.EmailField(required=True)
+
+    class Meta:
+        model = User
+        fields = ['username', 'email']
+
+# UserDataForm function to render fields from UserData Model during User Update on user profile form
+class UserDataForm(forms.ModelForm):
+    phone_number = forms.CharField()
+    role = forms.ChoiceField(choices=UserData.USER_CHOICES)
+
+    class Meta:
+        model = UserData
+        fields = ['phone_number', 'role']
+        

@@ -1,13 +1,19 @@
 from django.shortcuts import render, redirect
 
+#For authentication system - register, login, logout & profile update
 from . forms import CreateUserForm, UserProfileForm, UserDataForm
 from django.contrib.auth.models import User
 from login.models import UserData
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
+#uudi generator for unique Username
+import uuid
+#For email verification service
+from Dharma_App import settings
+from django.core.mail import send_mail
 
 # Create your views here.
-#
+########################################
 # View for rendering the user dashboard
 def basepage(request):
     return render(request, 'login/base.html')
@@ -27,6 +33,10 @@ def register(request):
         password2 = request.POST['password2']
         role = request.POST['role']
 
+        # Append a unique number to the username
+        unique_number = uuid.uuid4().int % 1000  # generates a random number between 0 and 999
+        username = f"{username}{unique_number}"
+
         # Create User instance
         myuser = User.objects.create_user(username, email, password1)
         
@@ -34,6 +44,13 @@ def register(request):
         user_data = UserData(phone_number=phone_number, role=role, user=myuser)
         user_data.save()
         # myuser.save()
+
+        # WELCOME EMAIL
+        subject = "Welcome to Dharma Saranam Gachhami " + myuser.username
+        message = "Hello " + myuser.username + "! \n" + "Welcome to Dharma Saranam Gachhyyami. Your account has been created, please confirm your email now. "
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [myuser.email]
+        send_mail(subject, message, from_email, to_list, fail_silently = False)
 
         return redirect('homepage')
 

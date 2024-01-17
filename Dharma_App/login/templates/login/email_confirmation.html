@@ -1,0 +1,6 @@
+{% autoescape off %}
+    Welcome to Django Login
+    Hello {{ name }}!
+    Verify your account by clicking on the following link.
+    Verification Link: http://{{ domain }}{% url 'activate' uidb64=uid token=token %}
+{% endautoescape %}

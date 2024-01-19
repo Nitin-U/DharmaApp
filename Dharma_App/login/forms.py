@@ -32,8 +32,11 @@ class CreateUserForm(UserCreationForm):
 
 # UserProfileForm function to render fields from User Model during User Update on user profile form
 class UserProfileForm(forms.ModelForm):
-    username = forms.CharField(max_length=20, required=True)
-    email = forms.EmailField(required=True)
+    # username = forms.CharField(max_length=20, required=True)
+    # email = forms.EmailField(required=True)
+
+    username = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'form-control'}))
 
     class Meta:
         model = User
@@ -41,8 +44,8 @@ class UserProfileForm(forms.ModelForm):
 
 # UserDataForm function to render fields from UserData Model during User Update on user profile form
 class UserDataForm(forms.ModelForm):
-    phone_number = forms.CharField()
-    role = forms.ChoiceField(choices=UserData.USER_CHOICES)
+    phone_number = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
+    role = forms.ChoiceField(choices=UserData.USER_CHOICES, widget=forms.Select(attrs={'class': 'form-select'}))
 
     class Meta:
         model = UserData

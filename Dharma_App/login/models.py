@@ -9,8 +9,8 @@ class UserData(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     phone_number = models.CharField(max_length=10, default='')
     USER_CHOICES = [
-        ('Cust', 'Customer'),
-        ('Pack', 'Package Provider'),
-        ('Prod', 'Product Seller'),
+        ('Customer', 'Customer'),
+        ('Package Provider', 'Package Provider'),
+        ('Product Seller', 'Product Seller'),
     ]
     role = models.CharField(max_length=20, choices=USER_CHOICES, default='')

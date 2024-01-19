@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,20 +20,15 @@
   href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.min.css"
   rel="stylesheet"
   />
-
-  <style>
-    nav.navbar {
-      background-color: #28221b !important;
-    }
-  </style>
-
+  <link rel="stylesheet" href="{% static 'login/css/base.css' %}">
 </head>
 <body>
   
-  
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-3">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="{% url 'homepage' %}">Dharmam Saranam</a>
+      <a class="navbar-brand" href="{% url 'homepage' %}">
+        <img src="{% static 'login/images/logo.jpg' %}" alt="Logo Image">
+      </a>
       <button
       data-mdb-collapse-init
       class="navbar-toggler"
@@ -45,50 +41,152 @@
       <i class="fas fa-bars"></i>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'register' %}">Register</a>
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 text-uppercase">
+        <li class="nav-item custom_nav">
+          <a class="nav-link" href="{% url 'homepage' %}">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'my_login' %}">Login</a>
+        <li class="nav-item custom_nav">
+          <a class="nav-link" href="">About</a>
+        </li>
+        <li class="nav-item custom_nav">
+          <a class="nav-link" href="">Tours</a>
+          <li class="nav-item custom_nav">
+            <a class="nav-link" href="">Contact</a>
+          </li>
         </li>
         {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'dashboard' %}">{{user.username}}</a>
-        </li>
-        {% endif %}
-        {% if user.is_authenticated %}
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'my_logout' %}">Log out</a>
+        <li class="nav-item custom_nav">
+          <a class="nav-link" href="{% url 'update_user' %}">{{user.username}}</a>
         </li>
         {% endif %}
       </ul>
-      <form class="d-flex input-group w-auto">
-        <input
-        type="search"
-        class="form-control"
-        placeholder="Type query"
-        aria-label="Search"
-        />
-        <button
-        data-mdb-ripple-init
-        class="btn btn-outline-primary"
-        type="button"
-        data-mdb-ripple-color="dark"
-        >
-        Search
-      </button>
-    </form>
+      
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <li class="d-flex justify-content-around nav-item">
+          {% if not user.is_authenticated %}
+          <a class="nav-link" href="{% url 'register' %}"><button class="btn btn-primary rounded-pill">Register</button></a>
+          <a class="nav-link" href="{% url 'my_login' %}"><button class="btn btn-primary rounded-pill">Login</button></a>
+          {% endif %}
+          {% if user.is_authenticated %}
+          <a class="nav-link" href="{% url 'my_logout' %}"><button class="btn btn-primary">Log out</button></a>
+          {% endif %}
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="{% url 'my_login' %}"><button class="btn btn-primary">Login</button></a>
+        </li> -->
+      </ul>
+    </div>
   </div>
-</div>
 </nav>
-
 
 {% block body_block %}
 <!-------Anything outside of this block container will be inherited if you extend------->
 {% endblock %}
 
+<footer class="bg-dark text-center">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Facebook -->
+      <a
+      data-mdb-ripple-init
+        class="btn text-white btn-floating m-1"
+        style="background-color: #3b5998;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-facebook-f"></i
+      ></a>
 
+      <!-- Twitter -->
+      <a
+        data-mdb-ripple-init
+        class="btn text-white btn-floating m-1"
+        style="background-color: #55acee;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-twitter"></i
+      ></a>
+
+      <!-- Google -->
+      <a
+        data-mdb-ripple-init
+        class="btn text-white btn-floating m-1"
+        style="background-color: #dd4b39;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-google"></i
+      ></a>
+
+      <!-- Instagram -->
+      <a
+        data-mdb-ripple-init
+        class="btn text-white btn-floating m-1"
+        style="background-color: #ac2bac;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-instagram"></i
+      ></a>
+
+      <!-- Linkedin -->
+      <a
+        data-mdb-ripple-init
+        class="btn text-white btn-floating m-1"
+        style="background-color: #0082ca;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-linkedin-in"></i
+      ></a>
+      <!-- Github -->
+      <a
+        data-mdb-ripple-init
+        class="btn text-white btn-floating m-1"
+        style="background-color: #333333;"
+        href="#!"
+        role="button"
+        ><i class="fab fa-github"></i
+      ></a>
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links -->
+    <section>
+      <div class="row">
+        <div class="col-lg-6 col-md-12">
+          <h5>TERMS AND CONDITIONS</h5>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente error culpa numquam necessitatibus non laborum, voluptates tempora. Sequi commodi odio, est cumque aut itaque natus iure impedit mollitia facere dolores?</p>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5>LINKS</h5>
+          <ul class="list-unstyled">
+            <a href=""><li>Link</li></a>
+            <a href=""><li>Link</li></a>
+            <a href=""><li>Link</li></a>
+            <a href=""><li>Link</li></a>
+          </ul>
+        </div>
+        <div class="col-lg-3 col-md-6">
+          <h5>LINKS</h5>
+          <ul class="list-unstyled">
+            <a href=""><li>Link</li></a>
+            <a href=""><li>Link</li></a>
+            <a href=""><li>Link</li></a>
+            <a href=""><li>Link</li></a>
+          </ul>
+        </div>
+      </div>
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-2 copyright-text">
+    © 2024 Copyright:
+    <a class="text-body" href="https://nitinutsav.com.np/" target="_blank">Nitin Utsav Bartaula</a>
+  </div>
+  <!-- Copyright -->
+</footer>
 
 </body>
 <!-- MDB -->
@@ -96,4 +194,6 @@
 type="text/javascript"
 src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.1.0/mdb.umd.min.js"
 ></script>
+<script src="{% static 'login/js/base.js' %}"></script>
+
 </html>

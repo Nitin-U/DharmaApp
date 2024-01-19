@@ -35,7 +35,7 @@
     
     {% extends "login/base.html" %}
     
-    <title>Register</title>
+    <title>Login</title>
 </head>
 
 {% block body_block %}
@@ -83,6 +83,7 @@
                 <div class="row justify-content-center">
                     <div class="col-xl-5 col-md-8">
                         <form method="POST" class="bg-white rounded shadow-5-strong p-5">
+                            <h1 class="text-center pb-4">LOGIN</h1>
                             {% csrf_token %}
                             
                             <!-- Email input -->
@@ -99,7 +100,7 @@
                             
                             <!-- 2 column grid layout for inline styling -->
                             <div class="row mb-4">
-                                <div class="col d-flex justify-content-center">
+                                <div class="col-lg-6 col-sm-6 col-xs-12 d-flex justify-content-center">
                                     <!-- Checkbox -->
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
@@ -109,7 +110,7 @@
                                     </div>
                                 </div>
                                 
-                                <div class="col text-center">
+                                <div class="col-lg-6 col-sm-6 col-xs-12 text-center">
                                     <!-- Simple link -->
                                     <a href="#!">Forgot password?</a>
                                 </div>

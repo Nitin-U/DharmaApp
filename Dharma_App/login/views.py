@@ -5,6 +5,7 @@ from . forms import CreateUserForm, UserProfileForm, UserDataForm
 from django.contrib.auth.models import User
 from login.models import UserData
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 #uudi generator for unique Username
 import uuid
@@ -30,6 +31,8 @@ def homepage(request):
 
 # View for user registration
 def register(request):
+    if request.user.is_authenticated:
+        return render (request, 'login/index.html')
 
     if request.method == "POST":
         email = request.POST['email']
@@ -85,6 +88,8 @@ def register(request):
 
 # View for rendering the custom login page
 def my_login(request):
+    if request.user.is_authenticated:
+        return render (request, 'login/index.html')
 
     form = CreateUserForm()
 
@@ -120,7 +125,7 @@ def update_user(request):
                 current_user_form.save()
                 user_data_form.save()
                 messages.success(request, 'Profile updated successfully')
-                return redirect('dashboard')
+                return redirect(request.path)
         else:
             current_user_form = UserProfileForm(instance = current_user)
             user_data_form = UserDataForm(instance = user_data)

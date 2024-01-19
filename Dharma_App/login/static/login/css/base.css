@@ -1,0 +1,84 @@
+/*------------------Nav Section Here----------------*/
+body {
+    background-color: #EEEEEE;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.bg-dark {
+    background-color: #EEEEEE !important;
+}
+.navbar {
+    /* background-color: #28221b !important; */
+    background:transparent !important;
+    padding-top: 0px;
+    box-shadow: none;
+    transition: all 0.5s;
+}
+.navbar-scrolled {
+    background-color: #EEEEEE !important;
+    padding-top: 10px;
+}
+a.navbar-brand img{
+    width: 40px;
+    mix-blend-mode: difference;
+    border-radius: 20px;
+    padding: 0;
+    margin: 0;
+}
+.btn.btn-primary {
+    background-color: #B71C1C;
+    transition: all 0.5s;
+    box-shadow: none;
+}
+.btn.btn-primary:hover {
+    background-color: #000;
+    color: #fff;
+    box-shadow: 2.5px 5px 9px #888888;
+}
+a.nav-link {
+    color: #000;
+    text-shadow: 2px 2px 8px #fff;
+    transition: all 0.5s;
+}
+a.nav-link:hover {
+    color: #B71C1C;
+    text-shadow: none
+}
+
+/*------------------Underline Hover Effect----------------*/
+.nav-item.custom_nav::after {
+    content: '';
+    display: block;
+    width: 0px;
+    height: 2px;
+    background: #B71C1C;
+    transition: 0.5s
+}
+
+.nav-item.custom_nav:hover::after {
+    width: 50%
+}
+
+.navbar-dark .navbar-nav .active>.nav-link,
+.navbar-dark .navbar-nav .nav-link.active,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .show>.nav-link,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
+    color: #B71C1C
+}
+
+.nav-link {
+    padding: 10px 25px;
+    transition: 0.5s
+}
+
+/*------------------Footer Section Here----------------*/
+footer {
+    margin-top: auto;
+    /* border-top: 1px solid rgba(0, 0, 0, 0.100);    */
+}
+.copyright-text {
+    background-color: rgba(0, 0, 0, 0.100);
+}

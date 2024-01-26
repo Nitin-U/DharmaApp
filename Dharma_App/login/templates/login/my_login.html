@@ -1,52 +1,20 @@
+{% extends "login/base.html" %}
+{% block body_block %}
+
+{% load static %}
+{% load custom-tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- <style>
-        .login,
-        .image {
-            min-height: 100vh;
-        }
-        
-        .bg-image {
-            background-image: url('https://bootstrapious.com/i/snippets/sn-page-split/bg.jpg');
-            background-size: cover;
-            background-position: center center;
-        }
-        .bg-image-register {
-            background-image: url('https://bootstrapious.com/ck_resources/img/austin-chan-ukzHlkoz1IE-unsplash(1).jpg');
-            background-size: cover;
-            background-position: center center;
-        }
-        
-        .custom_forgetpasslink a{
-            color: #B71C1C;
-        }
-    </style> -->
-    
-    <style>
-        #intro {
-            background-image: url(https://mdbootstrap.com/img/new/fluid/city/008.jpg);
-            height: 100vh;
-        }
-    </style>
-    
-    {% extends "login/base.html" %}
-    
+    <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
     <title>Login</title>
 </head>
 
-{% block body_block %}
-
 <body>
-
-    <!-- <div class="container-fluid">
+    <div class="container-fluid">
         <div class="row no-gutter">
-
-            <div class="col-md-6 d-none d-md-flex bg-image"></div>
-            
             
             <div class="col-md-6 bg-light">
                 <div class="login d-flex align-items-center py-5">
@@ -58,7 +26,7 @@
                                 <p class="text-muted mb-4">Login to portal from here.</p>
                                 <form method="POST" action="">
                                     {% csrf_token %}
-                                    <div class="form-group mb-3">
+                                    <!-- <div class="form-group mb-3">
                                         <input id="username" type="text" placeholder="Your Username"
                                         class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
                                         name="username" value="" autocomplete="">
@@ -67,65 +35,53 @@
                                         <input id="password" type="password" placeholder="Your Password"
                                         class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
                                         name="password1" autocomplete="">
+                                    </div> -->
+
+                                    <div class="form-group mb-3"> 
+                                        {% if loginform.username.errors %}
+                                        {{ loginform.username|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{loginform.username}}
+                                        {% endif %}
+                                        {% for error in loginform.username.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
                                     </div>
+
+                                    <div class="form-group mb-3"> 
+                                        {% if loginform.password.errors %}
+                                        {{ loginform.password|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{loginform.password}}
+                                        {% endif %}
+                                        {% for error in loginform.password.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
+                                    </div>
+
+                                    {% if messages %}
+                                        <div class="messages">
+                                        {% for message in messages %}
+                                            <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
+                                                {{ message }}
+                                            </div>
+                                        {% endfor %}
+                                        </div>
+                                    {% endif %}
                                     
                                     <button type="submit"
                                     class="btn btn-primary btn-block text-uppercase mb-2 w-100 rounded-pill shadow-sm p-2">Login</button>
                                 </form>
                             </div>
                         </div>
-                    </div> -->
-    
-    <!-- Background image -->
-    <div id="intro" class="bg-image shadow-2-strong">
-        <div class="mask d-flex align-items-center h-100" style="background-color: rgba(0, 0, 0, 0.8);">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-5 col-md-8">
-                        <form method="POST" class="bg-white rounded shadow-5-strong p-5">
-                            <h1 class="text-center pb-4">LOGIN</h1>
-                            {% csrf_token %}
-                            
-                            <!-- Email input -->
-                            <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="text" name="username" id="form1Example1" class="form-control" />
-                                <label class="form-label" for="form1Example1">Username</label>
-                            </div>
-                            
-                            <!-- Password input -->
-                            <div class="form-outline mb-4" data-mdb-input-init>
-                                <input type="password" name="password1" id="form1Example2" class="form-control" />
-                                <label class="form-label" for="form1Example2">Password</label>
-                            </div>
-                            
-                            <!-- 2 column grid layout for inline styling -->
-                            <div class="row mb-4">
-                                <div class="col-lg-6 col-sm-6 col-xs-12 d-flex justify-content-center">
-                                    <!-- Checkbox -->
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked />
-                                        <label class="form-check-label" for="form1Example3">
-                                            Remember me
-                                        </label>
-                                    </div>
-                                </div>
-                                
-                                <div class="col-lg-6 col-sm-6 col-xs-12 text-center">
-                                    <!-- Simple link -->
-                                    <a href="#!">Forgot password?</a>
-                                </div>
-                            </div>
-                            
-                            <!-- Submit button -->
-                            <button type="submit" name="Login" class="btn btn-primary btn-block" data-mdb-ripple-init>Sign in</button>
-                        </form>
                     </div>
                 </div>
             </div>
+
+            <div class="col-md-6 d-none d-md-flex bg-image"></div>
+
         </div>
     </div>
-    <!-- Background image -->
-    
 </body>
 
 {% endblock %}

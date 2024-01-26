@@ -2,6 +2,7 @@
 {% block body_block %}
 
 {% load static %}
+{% load custom-tags %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -38,47 +39,73 @@
                                 <p class="text-muted mb-4">New to Dharmam Saranam Gachhyami? Register Here.</p>
                                 <form method="POST" action="">
                                     {% csrf_token %}
-                                    
-                                    <div class="form-group mb-3">
-                                        <input id="email" type="email" placeholder="Your Email Address"
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="email" value="" autocomplete="email">
+
+                                    <div class="form-group mb-3"> 
+                                        {% if registerform.username.errors %}
+                                        {{ registerform.username|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.username}}
+                                        {% endif %}
+                                        {% for error in registerform.username.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
                                     </div>
-                                    
+
                                     <div class="form-group mb-3">
-                                        <input id="username" type="text" placeholder="Your Username"
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="username" value="" autocomplete="username">
+                                        {% if registerform.email.errors %}
+                                        {{ registerform.email|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.email}}
+                                        {% endif %}
+                                        {% for error in registerform.email.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
                                     </div>
-                                    
+
                                     <div class="form-group mb-3">
-                                        <input id="phone_number" type="text" placeholder="Your Phone Number"
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="phone_number" value="" autocomplete="phone_number">
+                                        {% if registerform.phone_number.errors %}
+                                        {{ registerform.phone_number|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.phone_number}}
+                                        {% endif %}
+                                        {% for error in registerform.phone_number.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
                                     </div>
-                                    
+
                                     <div class="form-group mb-3">
-                                        <input id="password1" type="password" placeholder="Your Password"
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="password1" value="" autocomplete="password1">
+                                        {% if registerform.role.errors %}
+                                        {{ registerform.role|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.role}}
+                                        {% endif %}
+                                        {% for error in registerform.role.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
                                     </div>
-                                    
+
                                     <div class="form-group mb-3">
-                                        <input id="password2" type="password" placeholder="Confirm Password"
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="password2" value="" autocomplete="password2">
+                                        {% if registerform.password1.errors %}
+                                        {{ registerform.password1|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.password1}}
+                                        {% endif %}
+                                        {% for error in registerform.password1.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
                                     </div>
-                                    
+
                                     <div class="form-group mb-3">
-                                        <select class="form-select form-select-md mb-3 rounded-pill border-0 shadow-sm px-4 text-dark" aria-label=".form-select-lg example" name="role">
-                                            <option selected disabled>--Type of user--</option>
-                                            <option value="Customer">Customer</option>
-                                            <option value="Package Provider">Package Provider</option>
-                                            <option value="Product Seller">Product Seller</option>
-                                        </select>
-                                        
+                                        {% if registerform.password2.errors %}
+                                        {{ registerform.password2|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.password2}}
+                                        {% endif %}
+                                        {% for error in registerform.password2.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
                                     </div>
-                                    
+
                                     <!----Reference register form from views register------------->
                                     <!-- {{registerform.as_p}} -->
                                     

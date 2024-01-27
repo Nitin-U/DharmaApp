@@ -164,3 +164,7 @@ def activate(request, uidb64, token):
         return redirect('homepage')
     else:
         return render(request, 'login/confirmation_fail.html')
+    
+# Coming-soon Page
+def comingsoon(request):
+    return render (request, 'login/comingsoon.html')

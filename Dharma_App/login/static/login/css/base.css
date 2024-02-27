@@ -21,6 +21,7 @@ body {
 .navbar-scrolled {
     background-color: #EEEEEE !important;
     padding-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.13);;
 }
 a.navbar-brand img{
     width: 40px;
@@ -38,6 +39,16 @@ a.navbar-brand img{
     background-color: #000;
     /* color: #fff;
     box-shadow: 2.5px 5px 9px #888888; */
+}
+.btn.btn-secondary {
+    color: #B71C1C;
+    background-color: transparent;
+    transition: .5s;
+}
+.btn.btn-secondary:hover {
+    font-size: 15px;
+    font-weight: 0;
+    color: #000;
 }
 a.nav-link {
     color: #000;
@@ -76,6 +87,54 @@ a.nav-link:hover {
     padding: 10px 25px;
     transition: 0.5s
 }
+
+/*------------------Home Search Button Here----------------*/
+.home-newsletter .single {
+    max-width: 650px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2; 
+}
+
+.home-newsletter .single h2 {
+    font-size: 22px;
+    color: white;
+    text-transform: uppercase;
+    margin-bottom: 40px; 
+}
+
+.home-newsletter .single .form-control {
+    height: 50px;
+    background: rgba(255, 255, 255, 0.6);
+    border-color: transparent;
+    border-radius: 20px 0 0 20px; 
+}
+
+.home-newsletter .single .form-control:focus {
+    box-shadow: none;
+    border-color: #B71C1C; 
+}
+
+.home-newsletter .single .btn {
+    min-height: 50px; 
+    border-radius: 0 20px 20px 0;
+    background: #B71C1C;
+    color: #fff;
+    transition: all 0.5s;
+}
+
+.home-newsletter .single .btn:hover {
+    background: #000;
+}
+
+/*------------------Global Rounded Container Section----------------*/
+.rounded, .card-custom, .card-custom .image-box, .card-custom .image-box img, .card-body, #contact-container, .img-container-contact {
+    border-radius: 12px !important;
+}
+/* .shadow {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+} */
 
 /*------------------Footer Section Here----------------*/
 footer {

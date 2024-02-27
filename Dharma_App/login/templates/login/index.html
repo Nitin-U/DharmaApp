@@ -7,50 +7,26 @@
 <link rel="stylesheet" href="{% static 'login/css/swiper-bundle.min.css' %}">
 <link rel="stylesheet" href="{% static 'login/css/swiper-style.css' %}">
 
-
 <style>
-    .home-newsletter .single {
-        max-width: 650px;
-        margin: 0 auto;
-        text-align: center;
-        position: relative;
-        z-index: 2; 
+    .container-bg {
+        background-color: #f8f9fa; /* light grey background color */
     }
-    
-    .home-newsletter .single h2 {
-        font-size: 22px;
-        color: white;
-        text-transform: uppercase;
-        margin-bottom: 40px; 
+    #contact-container {
+        border-radius: 8px;
     }
-    
-    .home-newsletter .single .form-control {
-        height: 50px;
-        background: rgba(255, 255, 255, 0.6);
-        border-color: transparent;
-        border-radius: 20px 0 0 20px; 
+    .card-body, .image-box {
+        background-color: #f8f9fa; /* light grey background color */
+        border-radius: 8px;
     }
-    
-    .home-newsletter .single .form-control:focus {
-        box-shadow: none;
-        border-color: #B71C1C; 
-    }
-    
-    .home-newsletter .single .btn {
-        min-height: 50px; 
-        border-radius: 0 20px 20px 0;
-        background: #B71C1C;
-        color: #fff;
-        transition: all 0.5s;
-    }
-    
-    .home-newsletter .single .btn:hover {
-        background: #000;
+    @media (max-width: 767px) {
+        .img-container-contact {
+            display: none; /* hide image on small screens */
+        }
     }
 </style>
 
 <!-- Jumbotron -->
-<div class="p-5 text-center bg-image" style="
+<div class="p-5 text-center bg-image shadow" style="
 background-image: url('https://images.pexels.com/photos/163168/mountains-summit-winter-snow-163168.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
 height: 800px;
 ">
@@ -103,66 +79,107 @@ height: 800px;
             <div class="slide-container-custom">
                 <div class="card-wrapper swiper-wrapper">
                     <div class="card-custom swiper-slide">
-                        <div class="image-box pt-4 px-4">
+                        <div class="image-box pt-4 px-4 position-relative">
                             <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top rounded object-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-4 mx-2"><i class="fa-solid fa-heart fa-2xl"></i></button>
                         </div>
-                        <div class="card-body p-4">
+                        
+                        <div class="card-body p-4 text-center">
                             <h5 class="card-title mb-3">Tour Pack 1</h5>
                             <!-- <p class="card-text">
                                 This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.
                             </p> -->
-                            <div class="d-flex justify-content-between">
-                                <div><button class="btn btn-primary">Details</button></div>
-                                <div><button class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></div>
+                            <div class="star-rating">
+                                <ul class="list-inline" style="color: gold;">
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-lg"></i></i></li>
+                                </ul>
+                            </div>
+                            <p class="item-price"><strike>$400.00</strike> <b>$369.00</b></p>
+                            <div class="d-flex justify-content-evenly">
+                                <div><button class="btn btn-primary btn-rounded">Add to Cart</button></div>
                             </div>
                         </div>
                     </div>
                     <div class="card-custom swiper-slide">
                         <div class="image-box pt-4 px-4">
                             <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top rounded object-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-4 mx-2"><i class="fa-solid fa-heart fa-2xl"></i></button>
                         </div>
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 text-center">
                             <h5 class="card-title mb-3">Tour Pack 2</h5>
                             <!-- <p class="card-text">
                                 This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.
                             </p> -->
-                            <div class="d-flex justify-content-between">
-                                <div><button class="btn btn-primary">Details</button></div>
-                                <div><button class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></div>
+                            <div class="star-rating">
+                                <ul class="list-inline" style="color: gold;">
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-lg"></i></i></li>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="card-custom swiper-slide">
-                        <div class="image-box pt-4 px-4">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/043.webp" class="card-img-top rounded object-cover" alt="" />
-                        </div>
-                        <div class="card-body p-4">
-                            <h5 class="card-title mb-3">Tour Pack 3</h5>
-                            <!-- <p class="card-text">
-                                This is a wider card with supporting text below as a natural lead-in to
-                                additional content. This content is a little bit longer.
-                            </p> -->
-                            <div class="d-flex justify-content-between">
-                                <div><button class="btn btn-primary">Details</button></div>
-                                <div><button class="btn btn-primary"><i class="fa-solid fa-cart-shopping"></i></button></div>
+                            <p class="item-price"><strike>$300.00</strike> <b>$269.00</b></p>
+                            <div class="d-flex justify-content-evenly">
+                                <div><button class="btn btn-primary btn-rounded">Add to Cart</button></div>
                             </div>
                         </div>
                     </div>
                     <div class="card-custom swiper-slide">
                         <div class="image-box pt-4 px-4">
                             <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top rounded object-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-4 mx-2"><i class="fa-solid fa-heart fa-2xl"></i></button>
                         </div>
-                        <div class="card-body p-4">
+                        <div class="card-body p-4 text-center">
+                            <h5 class="card-title mb-3">Tour Pack 3</h5>
+                            <!-- <p class="card-text">
+                                This is a wider card with supporting text below as a natural lead-in to
+                                additional content. This content is a little bit longer.
+                            </p> -->
+                            <div class="star-rating">
+                                <ul class="list-inline" style="color: gold;">
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-lg"></i></i></li>
+                                </ul>
+                            </div>
+                            <p class="item-price"><strike>$400.00</strike> <b>$369.00</b></p>
+                            <div class="d-flex justify-content-evenly">
+                                <div><button class="btn btn-primary btn-rounded">Add to Cart</button></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-custom swiper-slide">
+                        <div class="image-box pt-4 px-4">
+                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top rounded object-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-4 mx-2"><i class="fa-solid fa-heart fa-2xl"></i></button>
+                        </div>
+                        <div class="card-body p-4 text-center">
                             <h5 class="card-title mb-3">Tour Pack 4</h5>
                             <!-- <p class="card-text">
                                 This is a wider card with supporting text below as a natural lead-in to
                                 additional content. This content is a little bit longer.
                             </p> -->
-                            <div class="d-flex justify-content-between">
-                                <div><button class="btn btn-primary shadow">Details</button></div>
-                                <div><button class="btn btn-primary shadow"><i class="fa-solid fa-cart-shopping"></i></button></div>
+                            <div class="star-rating">
+                                <ul class="list-inline" style="color: gold;">
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa fa-star fa-lg"></i></li>
+                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-lg"></i></i></li>
+                                </ul>
+                            </div>
+                            <p class="item-price"><strike>$300.00</strike> <b>$269.00</b></p>
+                            <div class="d-flex justify-content-evenly">
+                                <div><button class="btn btn-primary btn-rounded">Add to Cart</button></div>
                             </div>
                         </div>
                     </div>
@@ -179,70 +196,60 @@ height: 800px;
 
 <!-- Our Services Body -->
 <div class="my-5" style="width: fit-content; margin: auto;">
-    <h1>Our Services</h1>
+    <h1>Request A Quote</h1>
     <hr class="border border-secondary border-2 opacity-100 rounded-5">
 </div>
 
-<section class="mb-5" id="what-we-do">
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-1">
-                        <h3 class="card-title">Service 1</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sed? Delectus quisquam magnam quidem sit laudantium ut aspernatur a. Harum tenetur omnis, nihil corporis consectetur corrupti. Ab ea quo labore!</p>
-                        <a href="" title="Read more" class="read-more" >Read more<i class="fa-solid fa-square-caret-right mx-2"></i></a>
+<div class="container container-bg mb-5 shadow" id="contact-container">
+    <div class="row">
+        <div class="col-md-6 p-4">
+            <!-- <h1 class="text-center">Enter Details Here</h1> -->
+            <form>
+                <h4 class="text-center mb-3">Enter Details Here</h4>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="text" class="form-control form-control-lg" />
+                            <label class="form-label">Full Name</label>
+                        </div>
+                    </div>
+                    
+                    <div class="col-6">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="email" class="form-control form-control-lg" />
+                            <label class="form-label">Email</label>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-2">
-                        <h3 class="card-title">Service 2</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sed? Delectus quisquam magnam quidem sit laudantium ut aspernatur a. Harum tenetur omnis, nihil corporis consectetur corrupti. Ab ea quo labore!</p>
-                        <a href="" title="Read more" class="read-more" >Read more<i class="fa-solid fa-square-caret-right mx-2"></i></a>
+                <div class="mb-3">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control form-control-lg" />
+                        <label class="form-label">Subject</label>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-3">
-                        <h3 class="card-title">Service 3</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sed? Delectus quisquam magnam quidem sit laudantium ut aspernatur a. Harum tenetur omnis, nihil corporis consectetur corrupti. Ab ea quo labore!</p>
-                        <a href="" title="Read more" class="read-more" >Read more<i class="fa-solid fa-square-caret-right mx-2"></i></a>
+                <div class="mb-3">
+                    <div data-mdb-input-init class="form-outline">
+                        <input type="text" class="form-control form-control-lg" />
+                        <label class="form-label">Country</label>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-4">
-                        <h3 class="card-title">Service 4</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sed? Delectus quisquam magnam quidem sit laudantium ut aspernatur a. Harum tenetur omnis, nihil corporis consectetur corrupti. Ab ea quo labore!</p>
-                        <a href="" title="Read more" class="read-more" >Read more<i class="fa-solid fa-square-caret-right mx-2"></i></a>
+                <div class="mb-3">
+                    <div data-mdb-input-init class="form-outline">
+                        <textarea class="form-control form-control-lg" rows="4"></textarea>
+                        <label class="form-label">Enter Message</label>
                     </div>
                 </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-5">
-                        <h3 class="card-title">Service 5</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sed? Delectus quisquam magnam quidem sit laudantium ut aspernatur a. Harum tenetur omnis, nihil corporis consectetur corrupti. Ab ea quo labore!</p>
-                        <a href="" title="Read more" class="read-more" >Read more<i class="fa-solid fa-square-caret-right mx-2"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 col-xl-4">
-                <div class="card">
-                    <div class="card-block block-6">
-                        <h3 class="card-title">Service 6</h3>
-                        <p class="card-text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Modi, sed? Delectus quisquam magnam quidem sit laudantium ut aspernatur a. Harum tenetur omnis, nihil corporis consectetur corrupti. Ab ea quo labore!</p>
-                        <a href="" title="Read more" class="read-more" >Read more<i class="fa-solid fa-square-caret-right mx-2"></i></a>
-                    </div>
-                </div>
-            </div>
+                <button type="submit" class="btn btn-primary w-100">Submit</button>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3340709.862661001!2d-82.50180837394292!3d35.14634498704759!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88541fc4fc381a81%3A0xad3f30f5e922ae19!2sNorth%20Carolina%2C%20USA!5e0!3m2!1sen!2snp!4v1709050703794!5m2!1sen!2snp" class="pt-3"  width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </form>
         </div>
-    </div>	
-</section>
+        
+        <div class="col-md-6 img-container-contact p-0 m-0 overflow-hidden">
+            <img src="https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="object-cover h-100 rounded-start-0" alt="Placeholder Image">
+        </div>
+    </div>
+</div>
+
 <!-- Our Services Body -->
 
 <script src="{% static 'login/js/swiper-bundle.min.js' %}"></script>

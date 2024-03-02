@@ -9,8 +9,8 @@ class Product(models.Model):
     product_name = models.CharField(max_length=144)
     PRODUCT_TYPE_CHOICES = [
         ('', '--- Your Product Falls Under Which Type? ---'),
-        ('Tour Package', 'Tour Package'),
-        ('Product Items', 'Product Items'),
+        ('Package', 'Package'),
+        ('Product', 'Product'),
     ]
     product_type = models.CharField(max_length=144, choices=PRODUCT_TYPE_CHOICES)
     PRODUCT_CATEGORY_CHOICES = [

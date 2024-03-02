@@ -1,9 +1,11 @@
-* {
+* :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(i), .fs-5 {
     font-family: "Montserrat", sans-serif;
     font-optical-sizing: auto;
     font-weight: 500;
     font-style: normal;
+    font-size: 18px !important;
 }
+
 /*------------------Nav Section Here----------------*/
 body {
     background-color: #EEEEEE;
@@ -45,6 +47,18 @@ a.navbar-brand img{
     /* color: #fff;
     box-shadow: 2.5px 5px 9px #888888; */
 }
+.btn.btn-outline-primary {
+    color: #B71C1C;
+    border-color: #B71C1C;
+    transition: all 0.5s;
+    box-shadow: none;
+}
+.btn.btn-outline-primary:Hover {
+    background-color: #B71C1C;
+    color: white;
+    border-color: #B71C1C;
+    transition: all 0.5s;
+}
 .btn.btn-secondary {
     color: #B71C1C;
     background-color: transparent;
@@ -54,6 +68,14 @@ a.navbar-brand img{
     font-size: 15px;
     font-weight: 0;
     color: #000;
+}
+.btn.btn-tertiary {
+    color: white;
+    background-color: #4F4F4F;
+    transition: .5s;
+}
+.btn.btn-tertiary:hover {
+    background-color: #000
 }
 a.nav-link {
     color: #000;
@@ -149,3 +171,20 @@ footer {
 .copyright-text {
     background-color: rgba(0, 0, 0, 0.100);
 }
+
+/*------------------Media Query Section Here----------------*/
+/* Media query for medium screens */
+@media (max-width: 992px) {
+    *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(i),
+    .fs-5 {
+      font-size: 16px !important;
+    }
+  }
+
+  /* Media query for small screens */
+  @media (max-width: 576px) {
+    *:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(i),
+    .fs-5 {
+      font-size: 14px !important;
+    }
+  }

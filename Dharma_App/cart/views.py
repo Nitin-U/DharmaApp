@@ -3,6 +3,7 @@ from .models import User, Product
 from django.views import View
 from .forms import AddProductForm
 from django.contrib import messages
+from django.db.models import Q
 
 # Create your views here.
 # Function based method
@@ -74,3 +75,18 @@ class EditProduct(View):
             productform.save()
             messages.error(request, "Data Edited Successfully")
             return redirect('cart:productlist')
+        
+def searchproduct(request):
+    if request.method == 'POST':
+        searched = request.POST['searched']
+        searched_products = Product.objects.filter(Q(product_name__icontains=searched) | Q(product_location__icontains=searched))
+
+        return render(request, 'cart/search.html', {
+            'searched': searched,
+            'products': searched_products,
+    })
+
+    else:
+        return render(request, 'cart/search.html', {
+
+        })

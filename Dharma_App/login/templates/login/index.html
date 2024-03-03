@@ -46,10 +46,10 @@ height: 800px;
                         <div class="row">
                             <div class="col-12">
                                 <div class="single">
-                                    <form action="" method="">
-                                        
+                                    <form action="{% url 'cart:searchproduct' %}" method="POST">
+                                        {% csrf_token %}
                                         <div class="input-group">
-                                            <input type="text" name="text" class="form-control"
+                                            <input type="text" name="searched" class="form-control"
                                             placeholder="Search Your Destination">
                                             <span class="input-group-btn">
                                                 <button class="btn btn-theme" type="submit"><i class="fa-solid fa-magnifying-glass-location fa-fade fa-2xl"></i></button>

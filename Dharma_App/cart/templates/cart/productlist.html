@@ -169,7 +169,7 @@
 <div class="container text-center">
     <i class="fa-regular fa-face-frown-open fa-2xl me-2"></i><i class="fa-solid fa-question fa-bounce fa-2xl"></i>
     <h1 class="display-6 mt-3">No Records Added Yet</h1>
-    <button class="btn btn-primary rounded-pill">Add Product</button>
+    <a href="{% url 'cart:addproduct' %}"><button class="btn btn-primary rounded-pill">Add Product</button></a>
 </div>
 {% endif %}
 

@@ -53,24 +53,35 @@ class CreateUserForm(UserCreationForm):
                 code='invalid_phone_number_start'
             )
 
+    firstname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Firstname *' }))
 
-    username = forms.CharField(max_length=124, validators=[check_digits_only], widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Username' }))
+    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Middlename' }), required=False)
 
-    email = forms.EmailField(validators=[check_email_exists], widget=forms.EmailInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Email' }))
+    lastname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Lastname *' }))
 
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Password' }))
+    username = forms.CharField(max_length=124, validators=[check_digits_only], widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Username *' }))
+
+    email = forms.EmailField(validators=[check_email_exists], widget=forms.EmailInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Email *' }))
+
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Password *' }))
     
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Confirm Your Password' }))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Confirm Your Password *' }))
     
-    phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric, validate_phone_number_start], widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Phone Number' }))
+    phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric, validate_phone_number_start], widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Phone Number *' }))
     
-    role = forms.ChoiceField(choices=UserData.USER_CHOICES, widget=forms.Select(attrs={'class': 'p-2 form-select rounded-pill shadow-sm px-4 text-muted', 'placeholder': 'Confirm Your Password' }))
+    # role = forms.CheckboxInput(choices=UserData.USER_CHOICES, widget=forms.Select(attrs={'class': 'p-2 form-select rounded-pill shadow-sm px-4 text-muted', 'placeholder': 'Confirm Your Password' }))
 
+    role = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input' }), required=False)
     
     class Meta:
 
         model = User
-        fields = ['username', 'phone_number', 'role', 'email', 'password1', 'password2']
+        fields = ['firstname', 'lastname', 'username', 'phone_number', 'role', 'email', 'password1', 'password2']
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields['username'].widget.attrs.update({'autofocus': False})
+        self.fields['firstname'].widget.attrs.update({'autofocus': True})
 
 #
 class LoginForm(forms.Form):
@@ -93,9 +104,10 @@ class UserProfileForm(forms.ModelForm):
 # UserDataForm class to render fields from UserData Model during User Update on user profile form
 class UserDataForm(forms.ModelForm):
     phone_number = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    role = forms.ChoiceField(choices=UserData.USER_CHOICES, widget=forms.Select(attrs={'class': 'form-select'}))
+    role = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input' }), required=False)
+    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Middlename' }), required=False)
 
     class Meta:
         model = UserData
-        fields = ['phone_number', 'role']
+        fields = ['phone_number', 'role', 'middlename']
         

@@ -48,9 +48,41 @@
                   </li>
                   <li class="nav-item custom_nav">
                      <a class="nav-link" href="">Tours</a>
+                  </li>
+                  <li class="nav-item custom_nav dropdown">
+                     <a
+                       data-mdb-dropdown-init
+                       class="nav-link dropdown-toggle"
+                       href="#"
+                       id="navbarDropdownMenuLink"
+                       role="button"
+                       aria-expanded="false"
+                     >
+                       Holy Places
+                     </a>
+                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <li>
+                           <a class="dropdown-item" href="#">Holy Place 1</a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#">Holy Place 2</a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#">Holy Place 3</a>
+                        </li>
+                        <li>
+                        <a class="dropdown-item" href="#">Holy Place 4</a>
+                        </li>
+                        <li>
+                           <a class="dropdown-item" href="#">Holy Place 5</a>
+                        </li>
+                     </ul>
+                  </li>
+                  <!-- <li class="nav-item custom_nav">
+                     <a class="nav-link" href="">Request A Quote</a>
+                  </li> -->
                   <li class="nav-item custom_nav">
                      <a class="nav-link" href="">Contact</a>
-                  </li>
                   </li>
                   {% if user.is_authenticated %}
                   <li class="nav-item custom_nav">
@@ -59,7 +91,7 @@
                   {% endif %}
                </ul>
                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                  <li class="d-flex justify-content-around nav-item">
+                  <!-- <li class="d-flex justify-content-around nav-item">
                      {% if not user.is_authenticated %}
                      <a class="nav-link" href="{% url 'register' %}"><button class="btn btn-primary rounded-pill">Register</button></a>
                      <a class="nav-link" href="{% url 'my_login' %}"><button class="btn btn-primary rounded-pill">Login</button></a>
@@ -67,10 +99,23 @@
                      {% if user.is_authenticated %}
                      <a class="nav-link" href="{% url 'my_logout' %}"><button class="btn btn-primary rounded-pill">Log out</button></a>
                      {% endif %}
+                  </li> -->
+
+                  {% if not user.is_authenticated %}
+                  <li class="nav-item custom_nav">
+                     <a class="nav-link" href="{% url 'register' %}">REGISTER</a>
                   </li>
-                  <!-- <li class="nav-item">
-                     <a class="nav-link" href="{% url 'my_login' %}"><button class="btn btn-primary">Login</button></a>
-                     </li> -->
+
+                  <li class="nav-item custom_nav">
+                     <a class="nav-link" href="{% url 'my_login' %}">LOGIN</a>
+                  </li>
+                  {% endif %}
+                  
+                  {% if user.is_authenticated %}
+                  <li class="nav-item custom_nav">
+                     <a class="nav-link" href="{% url 'my_logout' %}">LOGOUT</a>
+                  </li>
+                  {% endif %}
                </ul>
             </div>
          </div>

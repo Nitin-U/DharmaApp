@@ -41,6 +41,39 @@
                                     {% csrf_token %}
 
                                     <div class="form-group mb-3"> 
+                                        {% if registerform.firstname.errors %}
+                                        {{ registerform.firstname|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.firstname}}
+                                        {% endif %}
+                                        {% for error in registerform.firstname.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="form-group mb-3"> 
+                                        {% if registerform.middlename.errors %}
+                                        {{ registerform.middlename|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.middlename}}
+                                        {% endif %}
+                                        {% for error in registerform.middlename.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="form-group mb-3"> 
+                                        {% if registerform.lastname.errors %}
+                                        {{ registerform.lastname|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            {{registerform.lastname}}
+                                        {% endif %}
+                                        {% for error in registerform.lastname.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="form-group mb-3"> 
                                         {% if registerform.username.errors %}
                                         {{ registerform.username|add_attr:"form-control is-invalid" }}
                                         {% else %}
@@ -74,17 +107,6 @@
                                     </div>
 
                                     <div class="form-group mb-3">
-                                        {% if registerform.role.errors %}
-                                        {{ registerform.role|add_attr:"form-control is-invalid" }}
-                                        {% else %}
-                                            {{registerform.role}}
-                                        {% endif %}
-                                        {% for error in registerform.role.errors %}
-                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
-                                        {% endfor %}
-                                    </div>
-
-                                    <div class="form-group mb-3">
                                         {% if registerform.password1.errors %}
                                         {{ registerform.password1|add_attr:"form-control is-invalid" }}
                                         {% else %}
@@ -102,6 +124,17 @@
                                             {{registerform.password2}}
                                         {% endif %}
                                         {% for error in registerform.password2.errors %}
+                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
+                                        {% endfor %}
+                                    </div>
+
+                                    <div class="form-group mb-3">
+                                        {% if registerform.role.errors %}
+                                        {{ registerform.role|add_attr:"form-control is-invalid" }}
+                                        {% else %}
+                                            <p class="text-muted">{{registerform.role}} Would you like to register as a Service Provider?</p>
+                                        {% endif %}
+                                        {% for error in registerform.role.errors %}
                                             <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
                                         {% endfor %}
                                     </div>

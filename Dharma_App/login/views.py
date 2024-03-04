@@ -39,12 +39,16 @@ def register(request):
         if form.is_valid():
 
             # Create User instance
-            myuser = User.objects.create_user(username=form.cleaned_data['username'], password=form.cleaned_data['password1'], email=form.cleaned_data['email'])
+            myuser = User.objects.create_user(username=form.cleaned_data['username'], first_name=form.cleaned_data['firstname'], last_name=form.cleaned_data['lastname'], password=form.cleaned_data['password1'], email=form.cleaned_data['email'])
             myuser.is_active = False
             myuser.save()
 
             # Create UserData instance and link it to the User instance
-            user_data = UserData(phone_number=form.cleaned_data['phone_number'], role=form.cleaned_data['role'], user=myuser)
+            if form.cleaned_data['role']:
+                role = 'seller'
+            else:
+                role = 'customer'
+            user_data = UserData(phone_number=form.cleaned_data['phone_number'], role=role, middlename=form.cleaned_data['middlename'], user=myuser)
             user_data.save()
 
             # WELCOME EMAIL
@@ -160,7 +164,8 @@ def activate(request, uidb64, token):
     if myuser is not None and generate_token.check_token(myuser, token):
         myuser.is_active = True
         myuser.save()
-        login(request, myuser)
+        # login(request, myuser)
+        messages.success(request, ("Verification Successful"))
         return redirect('homepage')
     else:
         return render(request, 'login/confirmation_fail.html')

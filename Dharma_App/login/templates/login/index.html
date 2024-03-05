@@ -29,10 +29,10 @@
 </style>
 
 <!-- Jumbotron -->
-<!-- <div class="text-center bg-image shadow" style="
-background-image: url('https://images.pexels.com/photos/19770199/pexels-photo-19770199/free-photo-of-people-walking-through-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-height: 300px;
-">
+<div class="text-center bg-image shadow" style="
+    background-image: url('https://images.pexels.com/photos/19770199/pexels-photo-19770199/free-photo-of-people-walking-through-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    height: 300px;
+    ">
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
         <div class="d-flex align-items-start text-center h-100">
             <div class="text-white container ">
@@ -40,7 +40,7 @@ height: 300px;
                     <h1 class="display-6 fw-bold">Welcome</h1>
                     <hr class="border border-secondary border-2 opacity-100 rounded-5">
                 </div>
-
+                
                 <p class="fs-5 fw-light mx-lg-5">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment.</p>
                 
                 <a class="fs-6 btn btn-lg btn-outline-primary btn-rounded" href="#!" role="button">Learn More <i class="fa-solid fa-right-long"></i> </a>
@@ -49,44 +49,39 @@ height: 300px;
             </div>
         </div>
     </div>
-</div> -->
-
-
-<div class="text-center bg-image shadow position-relative" style="
-    background-image: url('https://images.pexels.com/photos/19770199/pexels-photo-19770199/free-photo-of-people-walking-through-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    height: 300px;
-">
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-        <div class="d-flex align-items-start text-center h-100">
-            <div class="text-white container">
-                <div style="width: fit-content; margin: auto;">
-                    <h1 class="display-6 fw-bold">Welcome</h1>
-                    <hr class="border border-secondary border-2 opacity-100 rounded-5">
-                </div>
-
-                <p class="fs-5 fw-light mx-lg-5">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment.</p>
-                
-                <a class="fs-6 btn btn-lg btn-outline-primary btn-rounded" href="#!" role="button">Learn More <i class="fa-solid fa-right-long"></i></a>
-            </div>
-        </div>
-    </div>
-    <div class="position-absolute top-0 end-0 col-2 " style="background-color: #f8f9fa; border-radius:12px; margin-top: 60px; margin-right:10px; padding-top:0;">
-        <div class="pt-2">
-            <h1 class="fw-bold" style="font-size: 20px;">Activities Near Me</h1>
-            <hr>
-            <ul class="text-start">
-                <p>ACTIVITIES 1</p>
-                <p>ACTIVITIES 1</p>
-                <p>ACTIVITIES 1</p>
-                <!-- Add more activities here -->
-            </ul>
-        </div>
-    </div>
 </div>
 
 
-
-
+<!-- <div class="text-center bg-image shadow position-relative" style="
+background-image: url('https://images.pexels.com/photos/19770199/pexels-photo-19770199/free-photo-of-people-walking-through-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+height: 300px;
+">
+<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+    <div class="d-flex align-items-start text-center h-100">
+        <div class="text-white container">
+            <div style="width: fit-content; margin: auto;">
+                <h1 class="display-6 fw-bold">Welcome</h1>
+                <hr class="border border-secondary border-2 opacity-100 rounded-5">
+            </div>
+            
+            <p class="fs-5 fw-light mx-lg-5">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment.</p>
+            
+            <a class="fs-6 btn btn-lg btn-outline-primary btn-rounded" href="#!" role="button">Learn More <i class="fa-solid fa-right-long"></i></a>
+        </div>
+    </div>
+</div>
+<div class="position-absolute top-0 end-0 col-2 " style="background-color: #f8f9fa; border-radius:12px; margin-top: 60px; margin-right:10px; padding-top:0;">
+    <div class="pt-2">
+        <h1 class="fw-bold" style="font-size: 20px;">Activities Near Me</h1>
+        <hr>
+        <ul class="text-start">
+            <p>ACTIVITIES 1</p>
+            <p>ACTIVITIES 1</p>
+            <p>ACTIVITIES 1</p>
+        </ul>
+    </div>
+</div>
+</div> -->
 <!-- Jumbotron -->
 
 
@@ -280,21 +275,27 @@ height: 300px;
                     <div class="row mb-3">
                         <div class="col-6">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="date" class="form-control form-control-lg" />
+                                <input type="date" id="start_date" class="form-control form-control-lg" />
                                 <label class="form-label">Start Date</label>
                             </div>
                         </div>
                         <div class="col-6">
                             <div data-mdb-input-init class="form-outline">
-                                <input type="date" class="form-control form-control-lg" />
+                                <input type="date" id="end_date" class="form-control form-control-lg" onchange="getDays()" />
                                 <label class="form-label">End Date</label>
                             </div>
                         </div>
                     </div>
                     <div class="mb-3">
                         <div data-mdb-input-init class="form-outline">
-                            <input type="number" class="form-control form-control-lg" />
-                            <label class="form-label">No. of Days</label>
+                            <input type="number" id="days" class="form-control form-control-lg" />
+                            <label id="days_label" class="form-label">No. of Days</label>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div data-mdb-input-init class="form-outline">
+                            <input type="number" id="guests" class="form-control form-control-lg" />
+                            <label class="form-label">No. of Guests</label>
                         </div>
                     </div>
                     <div class="mb-3">
@@ -317,7 +318,7 @@ height: 300px;
                 </form>
             </div>
             
-            <div class="col-md-6 img-container-contact p-0 m-0 overflow-hidden" style="height:600px">
+            <div class="col-md-6 img-container-contact p-0 m-0 overflow-hidden" style="height:700px">
                 <img src="https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="object-cover h-100 rounded" alt="Placeholder Image">
             </div>
         </div>
@@ -327,5 +328,62 @@ height: 300px;
     
     <script src="{% static 'login/js/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'login/js/swiper-script.js' %}"></script>
+    <script src="jquery-3.2.1.min.js"></script>
+    
+    <!-- <script>
+        function getDays() {
+            var start_date = new Date(document.getElementById('start_date').value);
+            var end_date = new Date(document.getElementById('end_date').value);
+            var time_diff = end_date.getTime() - start_date.getTime();
+            var days_diff = time_diff / (1000*3600*24);
+            document.getElementById('days').value = days_diff;
+            toggleDaysLabel();
+        }
+        
+        function toggleDaysLabel() {
+            var daysInput = document.getElementById('days');
+            var daysLabel = document.getElementById('days_label');
+            
+            if (daysInput.value !== '') {
+                daysLabel.style.display = 'none'; // Hide the label if input has value
+            } else {
+                daysLabel.style.display = 'block'; // Show the label if input is empty
+            }
+        }
+    </script> -->
+
+    <script>
+        // Function to initialize date picker and set min date to today
+        function initializeDatepicker() {
+            var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
+            document.getElementById('start_date').setAttribute('min', today);
+            document.getElementById('end_date').setAttribute('min', today);
+        }
+
+        // Call the initializeDatepicker function when the page is loaded
+        window.onload = function() {
+            initializeDatepicker();
+        };
+
+        function getDays() {
+            var start_date = new Date(document.getElementById('start_date').value);
+            var end_date = new Date(document.getElementById('end_date').value);
+            var time_diff = end_date.getTime() - start_date.getTime();
+            var days_diff = time_diff / (1000*3600*24);
+            document.getElementById('days').value = days_diff;
+            toggleDaysLabel(); // Call the function to toggle the label visibility
+        }
+
+        function toggleDaysLabel() {
+            var daysInput = document.getElementById('days');
+            var daysLabel = document.getElementById('days_label');
+
+            if (daysInput.value !== '') {
+                daysLabel.style.display = 'none'; // Hide the label if input has value
+            } else {
+                daysLabel.style.display = 'block'; // Show the label if input is empty
+            }
+        }
+    </script>
     
     {% endblock %}

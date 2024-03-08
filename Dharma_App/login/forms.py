@@ -53,21 +53,21 @@ class CreateUserForm(UserCreationForm):
                 code='invalid_phone_number_start'
             )
 
-    firstname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Firstname *' }))
+    firstname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your First Name *' }))
 
-    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Middlename' }), required=False)
+    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Middle Name' }), required=False)
 
-    lastname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Lastname *' }))
+    lastname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Last Name *' }))
 
-    username = forms.CharField(max_length=124, validators=[check_digits_only], widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Username *' }))
+    username = forms.CharField(max_length=124, validators=[check_digits_only], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your User Name *' }))
 
-    email = forms.EmailField(validators=[check_email_exists], widget=forms.EmailInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Email *' }))
+    email = forms.EmailField(validators=[check_email_exists], widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Email *' }))
 
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Password *' }))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Password *' }))
     
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Confirm Your Password *' }))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Your Password *' }))
     
-    phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric, validate_phone_number_start], widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Phone Number *' }))
+    phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric, validate_phone_number_start], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number *' }))
     
     # role = forms.CheckboxInput(choices=UserData.USER_CHOICES, widget=forms.Select(attrs={'class': 'p-2 form-select rounded-pill shadow-sm px-4 text-muted', 'placeholder': 'Confirm Your Password' }))
 
@@ -85,9 +85,9 @@ class CreateUserForm(UserCreationForm):
 
 #
 class LoginForm(forms.Form):
-    username = forms.CharField(max_length=124, validators=[], widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Username' }))
+    username = forms.CharField(max_length=124, validators=[], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Username' }))
 
-    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Password' }))
+    password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Password' }))
 
 # UserProfileForm class to render fields from User Model during User Update on user profile form
 class UserProfileForm(forms.ModelForm):

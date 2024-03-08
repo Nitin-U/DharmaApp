@@ -97,25 +97,30 @@ def my_login(request):
         if form.is_valid():
             username = form.cleaned_data['username']
             password = form.cleaned_data['password']
+            remember_me = request.POST.get('remember_me') # name must match to that of the checkbox in the template
             user = authenticate(request,username=username,password=password)
-
-            # if user:
-            #     login(request, user)
-            #     messages.success(request,f'Hi {username.title()}, welcome back!')
-            #     return redirect('posts')
 
             if user is not None:
                 login(request, user)
+
+
+                # request.session.set_expiry(10)
+                # if remember_me == 'on':
+                #     settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = False
+                # else:
+                #     settings.SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
+                if remember_me == 'on':
+                    request.session.set_expiry(604800)
+                else:
+                    request.session.set_expiry(0)
+
+                
                 return render(request,'login/index.html',{'username': username})
             
         # form is not valid or user is not authenticated
         messages.error(request, "Wrong credentials entered")
         return render(request,'login/my_login.html',{'loginform': form})
-
-            # else:
-            # messages.error(request, "Credential does not match")
-    # context = {'loginform': form}
-    # return render(request, 'login/my_login.html', context)
 
 def update_user(request):
 

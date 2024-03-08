@@ -40,7 +40,9 @@ SECRET_KEY = "django-insecure-c(1di(ipgiron_0+*tm^h0h$t-a2&qth1w0x*f%-q4#n+-w#wi
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
+# ALLOWED_HOSTS = [
+#     "www.django.visitholyplaces.com",
+#     "django.visitholyplaces.com"]
 
 # Application definition
 
@@ -102,6 +104,18 @@ DATABASES = {
     }
 }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': 'visisvbd_Django_DB',
+#         'USER': 'visisvbd_root',
+#         'PASSWORD': '=u6khn^C3-QK',
+#         'HOST': '127.0.0.1',
+#         'PORT': '3306',
+#         'OPTIONS': {'init_command': "SET sql_mode='STRICT_TRANS_TABLES'"},
+#     }
+# }
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -146,3 +160,5 @@ STATICFILES_DIR = [
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# SESSION_EXPIRE_AT_BROWSER_CLOSE = False

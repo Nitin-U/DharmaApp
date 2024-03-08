@@ -1,143 +1,149 @@
-* :not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(i),
-.fs-5 {
+/*Global Font Size/Style CSS Here*/
+* {
 	font-family: "Montserrat", sans-serif;
 	font-optical-sizing: auto;
 	font-weight: 500;
 	font-style: normal;
-	font-size: 18px !important;
+	font-size: 16px !important;
+}
+
+h1 {
+	font-size: 26px !important;
+	margin-bottom: 30px;
+}
+
+a {
+	text-decoration: none;
+}
+
+i.fa-xl {
+	font-size: 20px !important;
+}
+
+i.fa-xs {
+	font-size: 14px !important;
 }
 
 /*------------------Nav Section Here----------------*/
 body {
-	background-color: #EEEEEE;
+	background-color: #F8F8F8;
 	min-height: 100vh;
-	display: flex;
-	flex-direction: column;
+	/* display: flex;
+	flex-direction: column; */
 }
 
-.bg-dark {
-	background-color: #EEEEEE !important;
-}
-
+/*Navigation Bar CSS Here*/
 .navbar {
-	/* background-color: #28221b !important; */
-	background: transparent !important;
-	padding-top: 0px;
+	background-color: #333333 !important;
+	/* background: transparent !important; */
+	/* padding-top: 0px; */
 	box-shadow: none;
 	-webkit-backdrop-filter: blur(8px);
 	backdrop-filter: blur(8px);
 	transition: all 0.5s;
 }
 
-.navbar-scrolled {
-	/* background-color: #EEEEEE !important; */
+/* Hamburger Menu Color */
+.custom-toggler.navbar-toggler {
+    border-color: #F8F8F8;
+}         
+.custom-toggler .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23F8F8F8' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*Navigation Bar When Page Scrolls CSS Here*/
+/* .navbar-scrolled {
+	background-color: #EEEEEE !important;
 	padding-top: 10px;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
 	;
-}
+} */
 
+/*Navigation Bar Link's Dropdown Symbol Removed Here*/
 .navbar .dropdown-toggle::after {
 	display: none !important;
 }
 
 a.navbar-brand img {
 	width: 40px;
-	mix-blend-mode: difference;
+	/* mix-blend-mode: difference; */
 	border-radius: 20px;
 	padding: 0;
 	margin: 0;
 }
 
+/*Extra Navigation Bar for Contact Info*/
+.nav-extra {
+	background-color: #2E2E2E !important;
+}
+.nav-extra i, .nav-extra p{
+	color: #F8F8F8;
+}
+
+/*Primary Button (The Black Button) CSS Here*/
 .btn.btn-primary {
-	background-color: #B71C1C;
+	background-color: #333333;
+	border: 2px solid #333333;
 	transition: all 0.5s;
 	box-shadow: none;
 }
-
 .btn.btn-primary:hover {
 	background-color: #000;
 	/* color: #fff;
     box-shadow: 2.5px 5px 9px #888888; */
 }
 
+/*Outlined Button's (Without Rounded Corner) CSS Here*/
 .btn.btn-outline-primary {
-	color: #B71C1C;
-	border-color: #B71C1C;
+	color: #333333;
+	border: 2px solid #333333;
 	transition: all 0.5s;
 	box-shadow: none;
 }
-
 .btn.btn-outline-primary:Hover {
-	background-color: #B71C1C;
+	background-color: #333333;
 	color: white;
-	border-color: #B71C1C;
-	transition: all 0.5s;
 }
 
+/*WishList Button CSS Here*/
 .btn.btn-secondary {
-	color: #B71C1C;
+	color: #F8F8F8;
 	background-color: transparent;
+	border: none;
 	transition: .5s;
 }
-
 .btn.btn-secondary:hover {
-	font-size: 15px;
-	font-weight: 0;
-	color: #000;
+	color: #333333;
 }
 
+/*Outlined Button's (With Rounded Corner) CSS Here*/
 .btn.btn-tertiary {
-	color: white;
-	background-color: #4F4F4F;
+	color: #333333;
+	background-color: #F8F8F8;
+	border: 2px solid #333333;
 	transition: .5s;
 }
-
 .btn.btn-tertiary:hover {
-	background-color: #000
+	color: #F8F8F8;
+	background-color: #333333
 }
 
+/*Navigation Bar's Links Here*/
 a.nav-link {
-	color: #000;
-	text-shadow: 2px 2px 8px #fff;
+	padding: 8px;
+	margin: 0 3px;
+	border-radius: 2px;
+	color: #F8F8F8;
 	transition: all 0.5s;
 }
-
 a.nav-link:hover {
-	color: #B71C1C;
-	text-shadow: none
-}
-
-/*------------------Underline Hover Effect----------------*/
-.nav-item.custom_nav::after {
-	content: '';
-	display: block;
-	width: 0px;
-	height: 2px;
-	background: #B71C1C;
-	transition: 0.5s
-}
-
-.nav-item.custom_nav:hover::after {
-	width: 50%
-}
-
-.navbar-dark .navbar-nav .active>.nav-link,
-.navbar-dark .navbar-nav .nav-link.active,
-.navbar-dark .navbar-nav .nav-link.show,
-.navbar-dark .navbar-nav .show>.nav-link,
-.navbar-dark .navbar-nav .nav-link:focus,
-.navbar-dark .navbar-nav .nav-link:hover {
-	color: #B71C1C
-}
-
-.nav-link {
-	padding: 10px 25px;
-	transition: 0.5s
+	background-color: #F8F8F8;
+	color: #333333;
 }
 
 /*------------------Home Search Button Here----------------*/
 .home-newsletter .single {
-	max-width: 650px;
+	max-width: 100%;
 	margin: 0 auto;
 	text-align: center;
 	position: relative;
@@ -152,21 +158,21 @@ a.nav-link:hover {
 }
 
 .home-newsletter .single .form-control {
-	height: 50px;
+	height: 40px;
 	background: rgba(255, 255, 255, 0.6);
 	border-color: transparent;
 	border-radius: 20px 0 0 20px;
+	border: 2px solid #333333;
 }
 
 .home-newsletter .single .form-control:focus {
-	box-shadow: none;
-	border-color: #B71C1C;
+	border: 2px solid #333333;
 }
 
 .home-newsletter .single .btn {
-	min-height: 50px;
+	min-height: 40px;
 	border-radius: 0 20px 20px 0;
-	background: #B71C1C;
+	background: #333333;
 	color: #fff;
 	transition: all 0.5s;
 }
@@ -175,24 +181,23 @@ a.nav-link:hover {
 	background: #000;
 }
 
-/*------------------Global Rounded Container Section----------------*/
-.rounded,
-.card-custom,
-.card-custom .image-box,
-.card-custom .image-box img,
-.card-body,
-#contact-container,
-.img-container-contact {
-	border-radius: 12px !important;
+h1.display-6 {
+	font-size: 26px;
 }
 
-/* .shadow {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
-} */
-
+.text-dark {
+	color: #333333;
+}
 /*------------------Footer Section Here----------------*/
 footer {
 	margin-top: auto;
+	background-color: #333333;
+	color: #F8F8F8;
+	/* border-top: 1px solid rgba(0, 0, 0, 0.100);    */
+}
+
+footer a, a.text-body {
+	color: #F8F8F8;
 	/* border-top: 1px solid rgba(0, 0, 0, 0.100);    */
 }
 
@@ -204,23 +209,28 @@ footer {
 /* Media query for medium screens */
 @media (max-width: 992px) {
 
-	*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(i),
-	.fs-5 {
-		font-size: 16px !important;
+	* {
+		font-size: 15px !important;
 	}
+
+	/*Changing Homepage Search Bar's Width on Medium Screen Devices Here*/
+	/* .home-newsletter .single {
+		max-width: 90%;
+	} */
 }
 
 /* Media query for small screens */
 @media (max-width: 576px) {
 
-	*:not(h1):not(h2):not(h3):not(h4):not(h5):not(h6):not(i),
-	.fs-5 {
+	* {
 		font-size: 14px !important;
 	}
-}
+	/*Changing Homepage Search Bar's Width On Smaller Devices Here*/
+	/* .home-newsletter .single {
+		max-width: 300px;
+	} */
 
-@media (max-width: 375px) {
-	.nav-item.custom_nav:hover::after {
-		width: 0;
+	.nav-extra {
+		display: none;
 	}
 }

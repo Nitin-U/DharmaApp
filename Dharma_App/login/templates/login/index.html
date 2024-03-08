@@ -8,69 +8,54 @@
 <link rel="stylesheet" href="{% static 'login/css/swiper-style.css' %}">
 
 <style>
-    .mask {
-        padding-top: 70px;
-    }
-    .container-bg {
-        background-color: #f8f9fa; /* light grey background color */
-    }
-    #contact-container {
-        border-radius: 8px;
-    }
     .card-body, .image-box {
         background-color: #f8f9fa; /* light grey background color */
         border-radius: 8px;
     }
-    @media (max-width: 767px) {
-        .img-container-contact {
-            display: none; /* hide image on small screens */
-        }
+    .card-body a {
+        color: #333333;
+    }
+    .home-newsletter input.form-control{
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
     }
 </style>
 
 <!-- Jumbotron -->
-<div class="text-center bg-image shadow" style="
-    background-image: url('https://images.pexels.com/photos/19770199/pexels-photo-19770199/free-photo-of-people-walking-through-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    height: 300px;
-    ">
-    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-        <div class="d-flex align-items-start text-center h-100">
-            <div class="text-white container ">
-                <div style="width: fit-content; margin: auto;">
-                    <h1 class="display-6 fw-bold">Welcome</h1>
-                    <hr class="border border-secondary border-2 opacity-100 rounded-5">
+<div class="container my-5">
+    <div class="row justify-content-center align-items-center h-100">
+        <div class="col-sm-10 col-md-8 col-lg-5">
+            <h1 class="display-6 fw-bold text-center">Welcome</h1>
+            <p class="text-center">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment. 
+                <a href="" class="text-dark"> Learn More <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+            </p>
+            
+            <section class="home-newsletter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="single">
+                                <form action="{% url 'cart:searchproduct' %}" method="POST">
+                                    {% csrf_token %}
+                                    <div class="input-group">
+                                        <input type="text" name="searched" class="form-control"
+                                        placeholder="Search Your Holy Places or Products">
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-theme" type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                
-                <p class="fs-5 fw-light mx-lg-5">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment.</p>
-                
-                <a class="fs-6 btn btn-lg btn-outline-primary btn-rounded" href="#!" role="button">Learn More <i class="fa-solid fa-right-long"></i> </a>
-                
-                
-            </div>
+            </section>
+            
         </div>
     </div>
 </div>
 
 
-<!-- <div class="text-center bg-image shadow position-relative" style="
-background-image: url('https://images.pexels.com/photos/19770199/pexels-photo-19770199/free-photo-of-people-walking-through-desert.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-height: 300px;
-">
-<div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
-    <div class="d-flex align-items-start text-center h-100">
-        <div class="text-white container">
-            <div style="width: fit-content; margin: auto;">
-                <h1 class="display-6 fw-bold">Welcome</h1>
-                <hr class="border border-secondary border-2 opacity-100 rounded-5">
-            </div>
-            
-            <p class="fs-5 fw-light mx-lg-5">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment.</p>
-            
-            <a class="fs-6 btn btn-lg btn-outline-primary btn-rounded" href="#!" role="button">Learn More <i class="fa-solid fa-right-long"></i></a>
-        </div>
-    </div>
-</div>
-<div class="position-absolute top-0 end-0 col-2 " style="background-color: #f8f9fa; border-radius:12px; margin-top: 60px; margin-right:10px; padding-top:0;">
+<!-- <div class="position-absolute top-0 end-0 col-2" style="border: 1px solid #000; border-radius:12px; margin-top: 100px; margin-right:10px; padding:10px;">
     <div class="pt-2">
         <h1 class="fw-bold" style="font-size: 20px;">Activities Near Me</h1>
         <hr>
@@ -78,54 +63,29 @@ height: 300px;
             <p>ACTIVITIES 1</p>
             <p>ACTIVITIES 1</p>
             <p>ACTIVITIES 1</p>
+            <p>ACTIVITIES 1</p>
         </ul>
     </div>
-</div>
 </div> -->
 <!-- Jumbotron -->
 
-
-<section class="home-newsletter mt-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="single">
-                    <form action="{% url 'cart:searchproduct' %}" method="POST">
-                        {% csrf_token %}
-                        <div class="input-group">
-                            <input type="text" name="searched" class="form-control"
-                            placeholder="Search You Holy Destination or Product">
-                            <span class="input-group-btn">
-                                <button class="btn btn-theme" type="submit"><i class="fa-solid fa-magnifying-glass-location fa-fade fa-xl"></i></button>
-                            </span>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Card Body -->
-<!-- <div class="mt-3" style="width: fit-content; margin: auto;">
-    <h1 class="display-6 fw-bold">Popular Packages</h1>
-    <hr class="border border-secondary border-2 opacity-100 rounded-5">
-</div> -->
-
-<div class="container mt-4">    
+<!-- Request A Quote Body -->
+<div class="container">  
+    <h1 class="display-6 fw-bold text-center">Popular Packages</h1>  
     <div class="custom-card-body">
         <div class="container-custom-swiper swiper">
             <div class="slide-container-custom">
                 <div class="card-wrapper swiper-wrapper">
-                    <div class="card-custom swiper-slide">
-                        <div class="image-box pt-3 px-3 position-relative" style="width: 100%; height:150px">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top rounded object-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-3 mx-1"><i class="fa-solid fa-heart fa-xl"></i></button>
+                    <div class="card-custom swiper-slide shadow">
+                        <div class="image-box position-relative" style="width: 100%; height:120px">
+                            <img src="https://images.pexels.com/photos/19564307/pexels-photo-19564307/free-photo-of-majestic-temple-pashupatinath-temple-kathmandu-nepal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                         </div>
                         
                         <div class="card-body text-center py-3">
-                            <h5 class="card-title">Tour Pack 1</h5>
-                            <div class="star-rating">
+                            <p class="card-title overflow-hidden text-truncate px-2">Pashupatinath Temple</p>
+                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                            <div class="star-rating mt-1">
                                 <ul class="list-inline p-0 m-0" style="color: gold;">
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -133,22 +93,19 @@ height: 300px;
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
                                 </ul>
-                            </div>
-                            <p class="item-price p-0 mb-2"><strike>$400.00</strike> <b>$369.00</b></p>
-                            <div class="d-flex justify-content-evenly">
-                                <div><button class="btn btn-primary btn-rounded fs-6">View Details</button></div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-custom swiper-slide">
-                        <div class="image-box pt-3 px-3 position-relative" style="width: 100%; height:150px">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top rounded object-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-3 mx-1"><i class="fa-solid fa-heart fa-xl"></i></button>
+                    <div class="card-custom swiper-slide shadow">
+                        <div class="image-box position-relative" style="width: 100%; height:120px">
+                            <img src="https://images.pexels.com/photos/14440864/pexels-photo-14440864.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                         </div>
                         
                         <div class="card-body text-center py-3">
-                            <h5 class="card-title">Tour Pack 2</h5>
-                            <div class="star-rating">
+                            <p class="card-title overflow-hidden text-truncate px-2">Swayambhunath Temple</p>
+                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                            <div class="star-rating mt-1">
                                 <ul class="list-inline p-0 m-0" style="color: gold;">
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -156,22 +113,19 @@ height: 300px;
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
                                 </ul>
-                            </div>
-                            <p class="item-price p-0 mb-2"><strike>$300.00</strike> <b>$269.00</b></p>
-                            <div class="d-flex justify-content-evenly">
-                                <div><button class="btn btn-primary btn-rounded fs-6">View Details</button></div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-custom swiper-slide">
-                        <div class="image-box pt-3 px-3 position-relative" style="width: 100%; height:150px">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top rounded object-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-3 mx-1"><i class="fa-solid fa-heart fa-xl"></i></button>
+                    <div class="card-custom swiper-slide shadow">
+                        <div class="image-box position-relative" style="width: 100%; height:120px">
+                            <img src="https://images.pexels.com/photos/3873054/pexels-photo-3873054.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                         </div>
                         
                         <div class="card-body text-center py-3">
-                            <h5 class="card-title">Tour Pack 3</h5>
-                            <div class="star-rating">
+                            <p class="card-title overflow-hidden text-truncate px-2">Boudha Temple</p>
+                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                            <div class="star-rating mt-1">
                                 <ul class="list-inline p-0 m-0" style="color: gold;">
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -179,22 +133,19 @@ height: 300px;
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
                                 </ul>
-                            </div>
-                            <p class="item-price p-0 mb-2"><strike>$400.00</strike> <b>$369.00</b></p>
-                            <div class="d-flex justify-content-evenly">
-                                <div><button class="btn btn-primary btn-rounded fs-6">View Details</button></div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-custom swiper-slide">
-                        <div class="image-box pt-3 px-3 position-relative" style="width: 100%; height:150px">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/042.webp" class="card-img-top rounded object-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-3 mx-1"><i class="fa-solid fa-heart fa-xl"></i></button>
+                    <div class="card-custom swiper-slide shadow">
+                        <div class="image-box position-relative" style="width: 100%; height:120px">
+                            <img src="https://images.pexels.com/photos/14367176/pexels-photo-14367176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                         </div>
                         
                         <div class="card-body text-center py-3">
-                            <h5 class="card-title">Tour Pack 4</h5>
-                            <div class="star-rating">
+                            <p class="card-title overflow-hidden text-truncate px-2">Bhaktapur Durbar Square</p>
+                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                            <div class="star-rating mt-1">
                                 <ul class="list-inline p-0 m-0" style="color: gold;">
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -202,22 +153,19 @@ height: 300px;
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
                                 </ul>
-                            </div>
-                            <p class="item-price p-0 mb-2"><strike>$300.00</strike> <b>$269.00</b></p>
-                            <div class="d-flex justify-content-evenly">
-                                <div><button class="btn btn-primary btn-rounded fs-6">View Details</button></div>
                             </div>
                         </div>
                     </div>
-                    <div class="card-custom swiper-slide">
-                        <div class="image-box pt-3 px-3 position-relative" style="width: 100%; height:150px">
-                            <img src="https://mdbcdn.b-cdn.net/img/new/standard/city/044.webp" class="card-img-top rounded object-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0 mt-3 mx-1"><i class="fa-solid fa-heart fa-xl"></i></button>
+                    <div class="card-custom swiper-slide shadow">
+                        <div class="image-box position-relative" style="width: 100%; height:120px">
+                            <img src="https://images.unsplash.com/photo-1529018576489-4d1b669bdb15?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top object-fit-cover" alt="" />
+                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                         </div>
                         
                         <div class="card-body text-center py-3">
-                            <h5 class="card-title">Tour Pack 5</h5>
-                            <div class="star-rating">
+                            <p class="card-title overflow-hidden text-truncate px-2">Muktinath</p>
+                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                            <div class="star-rating mt-1">
                                 <ul class="list-inline p-0 m-0" style="color: gold;">
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -225,10 +173,6 @@ height: 300px;
                                     <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
                                     <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
                                 </ul>
-                            </div>
-                            <p class="item-price p-0 mb-2"><strike>$400.00</strike> <b>$369.00</b></p>
-                            <div class="d-flex justify-content-evenly">
-                                <div><button class="btn btn-primary btn-rounded fs-6">View Details</button></div>
                             </div>
                         </div>
                     </div>
@@ -245,81 +189,59 @@ height: 300px;
 </div>
 <!-- Card Body -->
 
-<!-- Request A Quote Body -->
-<div class="mt-3" style="width: fit-content; margin: auto;">
-    <h1 class="display-6 fw-bold">Request A Quote</h1>
-    <hr class="border border-secondary border-2 opacity-100 rounded-5">
-</div>
-
 <!-- <div class="container container-bg mb-5 shadow" id="contact-container"> -->
-    <div class="container mb-5" id="contact-container">
+    <div class="container mb-5">
+        <h1 class="display-6 fw-bold text-center">Request A Quote</h1>
         <div class="row">
-            <div class="col-md-6 p-4">
-                <!-- <h1 class="text-center">Enter Details Here</h1> -->
+            <div class="col-lg-6 col-md-8 col-sm-10 mx-auto shadow p-4 rounded">
                 <form>
-                    <!-- <h4 class="text-center mb-3">Enter Details Here</h4> -->
-                    <div class="row mb-3">
-                        <div class="col-12">
-                            <div data-mdb-input-init class="form-outline">
-                                <input type="text" class="form-control form-control-lg" />
-                                <label class="form-label">Full Name</label>
-                            </div>
-                        </div>
+                    <div class="col-md-12">
+                        <label for="fullname" class="form-label">Full Name</label>
+                        <input class="form-control" type="text" name="fullname" placeholder="Enter Your Name Here . . .">
                     </div>
-                    <div class="mb-3">
-                        <div data-mdb-input-init class="form-outline">
-                            <textarea class="form-control form-control-lg" rows="4"></textarea>
-                            <label class="form-label">Enter Message</label>
-                        </div>
+                    
+                    <div class="col-md-12 mt-4">
+                        <label for="message" class="form-label">Message</label>
+                        <textarea name="message" class="form-control" rows="5" placeholder="Enter Your Message Here . . ."></textarea>
                     </div>
-                    <div class="row mb-3">
-                        <div class="col-6">
-                            <div data-mdb-input-init class="form-outline">
-                                <input type="date" id="start_date" class="form-control form-control-lg" />
-                                <label class="form-label">Start Date</label>
-                            </div>
+                    
+                    <div class="row">
+                        <div class="col-md-6 mt-4">
+                            <label for="stardate" class="form-label">Start Date</label>
+                            <input type="date" name="startdate" id="start_date" class="form-control" placeholder="Your Start Date"></input>
                         </div>
-                        <div class="col-6">
-                            <div data-mdb-input-init class="form-outline">
-                                <input type="date" id="end_date" class="form-control form-control-lg" onchange="getDays()" />
-                                <label class="form-label">End Date</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div data-mdb-input-init class="form-outline">
-                            <input type="number" id="days" class="form-control form-control-lg" />
-                            <label id="days_label" class="form-label">No. of Days</label>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div data-mdb-input-init class="form-outline">
-                            <input type="number" id="guests" class="form-control form-control-lg" />
-                            <label class="form-label">No. of Guests</label>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div data-mdb-input-init class="form-outline">
-                            <input type="email" class="form-control form-control-lg" />
-                            <label class="form-label">Email</label>
-                        </div>
-                    </div>
-                    <div class="mb-3">
-                        <div data-mdb-input-init class="form-outline">
-                            <input type="email" class="form-control form-control-lg" />
-                            <label class="form-label">Contact No</label>
+                        
+                        <div class="col-md-6 mt-4">
+                            <label for="enddate" class="form-label">End Date</label>
+                            <input type="date" name="enddate" id="end_date" class="form-control" placeholder="Your End Date" onchange="getDays()"></input>
                         </div>
                     </div>
                     
-                    <div class="d-flex">
+                    <div class="col-md-12 mt-4">
+                        <label for="totaldays" class="form-label">No. of Days</label>
+                        <input class="form-control" type="number" id="days" name="totaldays" placeholder="Total Days . . .">
+                    </div>
+                    
+                    <div class="col-md-12 mt-4">
+                        <label for="totalguest" class="form-label">No. of Guests</label>
+                        <input class="form-control" type="number" name="totalguest" placeholder="Total No. of Guests Here . . .">
+                    </div>
+                    
+                    <div class="col-md-12 mt-4">
+                        <label for="email" class="form-label">Email</label>
+                        <input class="form-control" type="email" name="email" placeholder="Enter Your Email Here . . .">
+                    </div>
+                    
+                    <div class="col-md-12 mt-4">
+                        <label for="phone" class="form-label">Contact Number</label>
+                        <input class="form-control" type="tel" name="phone" placeholder="Your Contact Number Here . . .">
+                    </div>
+                    
+                    <div class="d-flex mt-4">
                         <button type="submit" class="btn btn-primary w-100 justify-content-evenly me-2 rounded-pill">Submit</button>
                         <button type="reset" class="btn btn-tertiary w-100 justify-content-evenly ms-2 rounded-pill">Reset</button>
                     </div>
                 </form>
-            </div>
-            
-            <div class="col-md-6 img-container-contact p-0 m-0 overflow-hidden" style="height:700px">
-                <img src="https://images.pexels.com/photos/1051075/pexels-photo-1051075.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="object-cover h-100 rounded" alt="Placeholder Image">
             </div>
         </div>
     </div>
@@ -329,29 +251,6 @@ height: 300px;
     <script src="{% static 'login/js/swiper-bundle.min.js' %}"></script>
     <script src="{% static 'login/js/swiper-script.js' %}"></script>
     <script src="jquery-3.2.1.min.js"></script>
-    
-    <!-- <script>
-        function getDays() {
-            var start_date = new Date(document.getElementById('start_date').value);
-            var end_date = new Date(document.getElementById('end_date').value);
-            var time_diff = end_date.getTime() - start_date.getTime();
-            var days_diff = time_diff / (1000*3600*24);
-            document.getElementById('days').value = days_diff;
-            toggleDaysLabel();
-        }
-        
-        function toggleDaysLabel() {
-            var daysInput = document.getElementById('days');
-            var daysLabel = document.getElementById('days_label');
-            
-            if (daysInput.value !== '') {
-                daysLabel.style.display = 'none'; // Hide the label if input has value
-            } else {
-                daysLabel.style.display = 'block'; // Show the label if input is empty
-            }
-        }
-    </script> -->
-
     <script>
         // Function to initialize date picker and set min date to today
         function initializeDatepicker() {
@@ -359,12 +258,12 @@ height: 300px;
             document.getElementById('start_date').setAttribute('min', today);
             document.getElementById('end_date').setAttribute('min', today);
         }
-
+        
         // Call the initializeDatepicker function when the page is loaded
         window.onload = function() {
             initializeDatepicker();
         };
-
+        
         function getDays() {
             var start_date = new Date(document.getElementById('start_date').value);
             var end_date = new Date(document.getElementById('end_date').value);
@@ -373,11 +272,11 @@ height: 300px;
             document.getElementById('days').value = days_diff;
             toggleDaysLabel(); // Call the function to toggle the label visibility
         }
-
+        
         function toggleDaysLabel() {
             var daysInput = document.getElementById('days');
             var daysLabel = document.getElementById('days_label');
-
+            
             if (daysInput.value !== '') {
                 daysLabel.style.display = 'none'; // Hide the label if input has value
             } else {

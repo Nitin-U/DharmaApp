@@ -11,77 +11,84 @@
     <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
     <title>Login</title>
 </head>
+<style>
+    .or-container {
+        align-items: center;
+        color: #333333;
+        display: flex;
+        margin: 25px 0;
+    }
+    
+    .line-separator {
+        background-color: #ccc;
+        flex-grow: 5;
+        height: 1px;
+    }
+    
+    .or-label {
+        flex-grow: 1;
+        margin: 0 15px;
+        text-align: center;
+    }
+</style>
 
 <body>
-    <div class="container-fluid">
-        <div class="row no-gutter">
-            
-            <div class="col-md-6 bg-light">
-                <div class="login d-flex align-items-center py-5">
-                    
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-10 col-xl-7 mx-auto">
-                                <h3 class="display-4">Login</h3>
-                                <p class="text-muted mb-4">Login to portal from here.</p>
-                                <form method="POST" action="">
-                                    {% csrf_token %}
-                                    <!-- <div class="form-group mb-3">
-                                        <input id="username" type="text" placeholder="Your Username"
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="username" value="" autocomplete="">
-                                    </div>
-                                    <div class="form-group mb-3">
-                                        <input id="password" type="password" placeholder="Your Password"
-                                        class="p-2 form-control rounded-pill border-0 shadow-sm px-4 text-dark"
-                                        name="password1" autocomplete="">
-                                    </div> -->
-
-                                    <div class="form-group mb-3"> 
-                                        {% if loginform.username.errors %}
-                                        {{ loginform.username|add_attr:"form-control is-invalid" }}
-                                        {% else %}
-                                            {{loginform.username}}
-                                        {% endif %}
-                                        {% for error in loginform.username.errors %}
-                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
-                                        {% endfor %}
-                                    </div>
-
-                                    <div class="form-group mb-3"> 
-                                        {% if loginform.password.errors %}
-                                        {{ loginform.password|add_attr:"form-control is-invalid" }}
-                                        {% else %}
-                                            {{loginform.password}}
-                                        {% endif %}
-                                        {% for error in loginform.password.errors %}
-                                            <span class="ps-2" style="color: #B71C1C;"> {{ error }} </span>
-                                        {% endfor %}
-                                    </div>
-
-                                    {% if messages %}
-                                        <div class="messages">
-                                        {% for message in messages %}
-                                            <div class="alert {% if message.tags %}alert-{{ message.tags }}"{% endif %}>
-                                                {{ message }}
-                                            </div>
-                                        {% endfor %}
-                                        </div>
-                                    {% endif %}
-                                    
-                                    <button type="submit"
-                                    class="btn btn-primary btn-block text-uppercase mb-2 w-100 rounded-pill shadow-sm p-2">Login</button>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+    
+    <div class="heading-container text-center my-5">
+        <h1 class="display-6 fw-bold">Login</h1>
+        <!-- <p class="fw-light">Log Into The Platfrom Through Here.</p> -->
+    </div>
+    
+    <div class="container mb-5 col-sm-8 col-md-6">
+        <form method="POST" class="row g-3">
+            {% csrf_token %}
+            <div class="col-md-12">
+                <label for="username" class="form-label">Username *</label>
+                {{loginform.username}}
+            </div>
+            <div class="col-md-12">
+                <label for="password" class="form-label">Password *</label>
+                {{loginform.password}}
+            </div>
+            <div class="col-12 d-flex align-items-end">
+                <div class="form-check">
+                    <input class="form-check-input" name="remember_me" type="checkbox" id="gridCheck">
+                    <label class="form-check-label" for="gridCheck">
+                        Remember Me
+                    </label>
                 </div>
             </div>
 
-            <div class="col-md-6 d-none d-md-flex bg-image"></div>
+            {% if messages %}
+            {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+            {% endif %}
 
+            <div class="col-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+            
+            <div class="or-container"><div class="line-separator"></div> <div class="or-label">or</div><div class="line-separator"></div></div>
+            
+            <div class="container d-flex justify-content-center">
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 my-1 text-center"> <!-- Added text-center class -->
+                        <button class="btn btn-primary btn-lg"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> </a>Signup Using Google</button>
+                    </div>
+                    <div class="col-md-6 col-sm-12 my-1 text-center"> <!-- Added text-center class -->
+                        <button class="btn btn-primary btn-lg"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> </a>Signup Using Google</button>
+                    </div>
+                </div>
+            </div>            
+            
         </div>
-    </div>
+    </form>
+</div>
+
 </body>
 
 {% endblock %}

@@ -1,96 +1,70 @@
 {% extends "login/base.html" %}
 {% block body_block %}
-
 {% load static %}
 {% load custom-tags %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
-    <title>Login</title>
-</head>
-<style>
-    .or-container {
-        align-items: center;
-        color: #333333;
-        display: flex;
-        margin: 25px 0;
-    }
-    
-    .line-separator {
-        background-color: #ccc;
-        flex-grow: 5;
-        height: 1px;
-    }
-    
-    .or-label {
-        flex-grow: 1;
-        margin: 0 15px;
-        text-align: center;
-    }
-</style>
-
-<body>
-    
-    <div class="heading-container text-center my-5">
-        <h1 class="display-6 fw-bold">Login</h1>
-        <!-- <p class="fw-light">Log Into The Platfrom Through Here.</p> -->
-    </div>
-    
-    <div class="container mb-5 col-sm-8 col-md-6">
-        <form method="POST" class="row g-3">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'login/css/login.css' %}">
+      <title>Login</title>
+   </head>
+   <body>
+      <div class="heading-container text-center my-5">
+         <h1 class="display-6 fw-bold">Login</h1>
+         <!-- <p class="fw-light">Log Into The Platfrom Through Here.</p> -->
+      </div>
+      <div class="container mb-5 col-sm-8 col-md-6">
+         <form method="POST" class="row g-3">
             {% csrf_token %}
             <div class="col-md-12">
-                <label for="username" class="form-label">Username *</label>
-                {{loginform.username}}
+               <label for="username" class="form-label">Username *</label>
+               {{loginform.username}}
             </div>
             <div class="col-md-12">
-                <label for="password" class="form-label">Password *</label>
-                {{loginform.password}}
+               <label for="password" class="form-label">Password *</label>
+               {{loginform.password}}
             </div>
             <div class="col-12 d-flex align-items-end">
-                <div class="form-check">
-                    <input class="form-check-input" name="remember_me" type="checkbox" id="gridCheck">
-                    <label class="form-check-label" for="gridCheck">
-                        Remember Me
-                    </label>
-                </div>
+               <div class="form-check">
+                  <input class="form-check-input" name="remember_me" type="checkbox" id="gridCheck">
+                  <label class="form-check-label" for="gridCheck">
+                  Remember Me
+                  </label>
+               </div>
             </div>
-
             {% if messages %}
             {% for message in messages %}
             <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %} alert-dismissible fade show" role="alert">
-                {{ message }}
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+               {{ message }}
+               <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
             {% endfor %}
             {% endif %}
-
             <div class="col-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Login</button>
+               <button type="submit" class="btn btn-primary">Login</button>
             </div>
-            
-            <div class="or-container"><div class="line-separator"></div> <div class="or-label">or</div><div class="line-separator"></div></div>
-            
-            <div class="container d-flex justify-content-center">
-                <div class="row">
-                    <div class="col-md-6 col-sm-12 my-1 text-center"> <!-- Added text-center class -->
-                        <button class="btn btn-primary btn-lg"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> </a>Signup Using Google</button>
-                    </div>
-                    <div class="col-md-6 col-sm-12 my-1 text-center"> <!-- Added text-center class -->
-                        <button class="btn btn-primary btn-lg"><img src="https://img.icons8.com/color/16/000000/google-logo.png"> </a>Signup Using Google</button>
-                    </div>
-                </div>
-            </div>            
-            
-        </div>
-    </form>
-</div>
-
-</body>
-
-{% endblock %}
-
+            <div class="or-container">
+               <div class="line-separator"></div>
+               <div class="or-label">or</div>
+               <div class="line-separator"></div>
+            </div>
+            <div class="container">
+               <div class="row">
+                  <div class="col-md-6 col-sm-12 my-1 text-center">
+                     <!-- Added text-center class -->
+                     <button class="btn btn-primary btn-lg"><img src="{% static 'login/images/google.jpg' %}"> </a>Signup Using Google</button>
+                  </div>
+                  <div class="col-md-6 col-sm-12 my-1 text-center">
+                     <!-- Added text-center class -->
+                     <button class="btn btn-primary btn-lg"><img src="{% static 'login/images/github.png' %}"> </a>Signup Using Github</button>
+                  </div>
+               </div>
+            </div>
+      </div>
+      </form>
+      </div>
+   </body>
+   {% endblock %}
 </html>

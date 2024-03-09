@@ -24,6 +24,10 @@ i.fa-xs {
 	font-size: 14px !important;
 }
 
+.form-control:not(textarea) {
+	height: 40px;
+}
+
 /*------------------Nav Section Here----------------*/
 body {
 	background-color: #F8F8F8;
@@ -93,7 +97,7 @@ a.navbar-brand img {
     box-shadow: 2.5px 5px 9px #888888; */
 }
 
-/*Outlined Button's (Without Rounded Corner) CSS Here*/
+/*Outlined Button's CSS Here*/
 .btn.btn-outline-primary {
 	color: #333333;
 	border: 2px solid #333333;
@@ -113,19 +117,7 @@ a.navbar-brand img {
 	transition: .5s;
 }
 .btn.btn-secondary:hover {
-	color: #333333;
-}
-
-/*Outlined Button's (With Rounded Corner) CSS Here*/
-.btn.btn-tertiary {
-	color: #333333;
-	background-color: #F8F8F8;
-	border: 2px solid #333333;
-	transition: .5s;
-}
-.btn.btn-tertiary:hover {
-	color: #F8F8F8;
-	background-color: #333333
+	color: red;
 }
 
 /*Navigation Bar's Links Here*/
@@ -179,6 +171,10 @@ a.nav-link:hover {
 
 .home-newsletter .single .btn:hover {
 	background: #000;
+}
+
+.home-newsletter input.form-control{
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
 }
 
 h1.display-6 {

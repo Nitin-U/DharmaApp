@@ -1,161 +1,152 @@
 {% extends "login/base.html" %}
 {% block body_block %}
-
 {% load static %}
 {% load custom-tags %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
-    <title>Register</title>
-</head>
-<body>
-    
-    <div class="heading-container text-center my-5">
-        <h1 class="display-6 fw-bold">Register</h1>
-        <!-- <p class="fw-light">New to Dharmam Saranam Gachhyami? Register Here.</p> -->
-    </div>
-    
-    <div class="container mb-5 w-75">
-        <form method="POST" class="row g-3">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static 'login/css/register.css' %}">
+      <title>Register</title>
+   </head>
+   <body>
+      <div class="heading-container text-center my-5">
+         <h1 class="display-6 fw-bold">Register</h1>
+         <!-- <p class="fw-light">New to Dharmam Saranam Gachhyami? Register Here.</p> -->
+      </div>
+      <div class="container mb-5 col-md-10">
+         <form method="POST" class="row g-3">
             {% csrf_token %}
             <div class="col-md-4">
-                <label for="firstname" class="form-label">First Name *</label>
-                {% if registerform.firstname.errors %} 
-                {{registerform.firstname|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.firstname}} 
-                {% endif %} 
-                {% for error in registerform.firstname.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
+               <label for="firstname" class="form-label">First Name *</label>
+               {% if registerform.firstname.errors %} 
+               {{registerform.firstname|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.firstname}} 
+               {% endif %} 
+               {% for error in registerform.firstname.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
             </div>
             <div class="col-md-4">
-                <label for="middlename" class="form-label">Middle Name</label>
-                {% if registerform.middlename.errors %} 
-                {{registerform.middlename|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.middlename}} 
-                {% endif %} 
-                {% for error in registerform.middlename.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
+               <label for="middlename" class="form-label">Middle Name</label>
+               {% if registerform.middlename.errors %} 
+               {{registerform.middlename|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.middlename}} 
+               {% endif %} 
+               {% for error in registerform.middlename.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
             </div>
             <div class="col-md-4">
-                <label for="lastname" class="form-label">Last Name *</label>
-                {% if registerform.lastname.errors %} 
-                {{registerform.lastname|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.lastname}} 
-                {% endif %} 
-                {% for error in registerform.lastname.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
-            </div>
-            
-            <div class="col-md-4">
-                <label for="username" class="form-label">User Name *</label>
-                {% if registerform.username.errors %} 
-                {{registerform.username|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.username}} 
-                {% endif %} 
-                {% for error in registerform.username.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
+               <label for="lastname" class="form-label">Last Name *</label>
+               {% if registerform.lastname.errors %} 
+               {{registerform.lastname|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.lastname}} 
+               {% endif %} 
+               {% for error in registerform.lastname.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
             </div>
             <div class="col-md-4">
-                <label for="password" class="form-label">Password *</label>
-                {% if registerform.password1.errors %} 
-                {{registerform.password1|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.password1}} 
-                {% endif %} 
-                {% for error in registerform.password1.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
+               <label for="username" class="form-label">User Name *</label>
+               {% if registerform.username.errors %} 
+               {{registerform.username|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.username}} 
+               {% endif %} 
+               {% for error in registerform.username.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
             </div>
             <div class="col-md-4">
-                <label for="password" class="form-label">Confirm Password *</label>
-                {% if registerform.password2.errors %} 
-                {{registerform.password2|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.password2}} 
-                {% endif %} 
-                {% for error in registerform.password2.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
-            </div>
-            
-            <div class="col-md-4">
-                <label for="email" class="form-label">Email *</label>
-                {% if registerform.email.errors %} 
-                {{registerform.email|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.email}} 
-                {% endif %} 
-                {% for error in registerform.email.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
+               <label for="password" class="form-label">Password *</label>
+               {% if registerform.password1.errors %} 
+               {{registerform.password1|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.password1}} 
+               {% endif %} 
+               {% for error in registerform.password1.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
             </div>
             <div class="col-md-4">
-                <label for="phone" class="form-label">Phone Number *</label>
-                {% if registerform.phone_number.errors %} 
-                {{registerform.phone_number|add_attr:"form-control is-invalid"}} 
-                {% else %} 
-                {{registerform.phone_number}} 
-                {% endif %} 
-                {% for error in registerform.phone_number.errors %}    
-                <span style="color: #b71c1c">
-                    {{ error }}
-                </span>
-                {% endfor %}
+               <label for="password" class="form-label">Confirm Password *</label>
+               {% if registerform.password2.errors %} 
+               {{registerform.password2|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.password2}} 
+               {% endif %} 
+               {% for error in registerform.password2.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
+            </div>
+            <div class="col-md-4">
+               <label for="email" class="form-label">Email *</label>
+               {% if registerform.email.errors %} 
+               {{registerform.email|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.email}} 
+               {% endif %} 
+               {% for error in registerform.email.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
+            </div>
+            <div class="col-md-4">
+               <label for="phone" class="form-label">Phone Number *</label>
+               {% if registerform.phone_number.errors %} 
+               {{registerform.phone_number|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.phone_number}} 
+               {% endif %} 
+               {% for error in registerform.phone_number.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
             </div>
             <div class="col-md-4 d-flex align-items-center" style="margin-top: 30px;">
-                <div class="form-check">
-                    <!-- <input class="form-check-input" type="checkbox" id="gridCheck"> -->
-                    {% if registerform.role.errors %} 
-                        {{registerform.role|add_attr:"form-control is-invalid"}} 
-                    {% else %} 
-                        {{registerform.role}} 
-                    {% endif %} 
-                    <label class="form-check-label" for="gridCheck">
-                        Are You A Seller ?
-                    </label>
-                    {% for error in registerform.role.errors %} 
-                    <span style="color: #b71c1c">
-                        {{ error }}
-                    </span>
-                    {% endfor %}
-                </div>
+               <div class="form-check">
+                  <!-- <input class="form-check-input" type="checkbox" id="gridCheck"> -->
+                  {% if registerform.role.errors %} 
+                  {{registerform.role|add_attr:"form-control is-invalid"}} 
+                  {% else %} 
+                  {{registerform.role}} 
+                  {% endif %} 
+                  <label class="form-check-label" for="gridCheck">
+                  Are You A Seller ?
+                  </label>
+                  {% for error in registerform.role.errors %} 
+                  <span style="color: #b71c1c">
+                  {{ error }}
+                  </span>
+                  {% endfor %}
+               </div>
             </div>
             <div class="col-12 d-flex justify-content-center">
-                <button type="submit" class="btn btn-primary">Register</button>
+               <button type="submit" class="btn btn-primary">Register</button>
             </div>
             <hr style="color: #333333">
             <p class="fw-light text-center"> By clicking Register, you agree to the <a href="" class="ms-1"> term of use </a> </p>
-        </form>
-    </div>
-    
-    
-</body>
-
-{% endblock %}
-
+         </form>
+      </div>
+   </body>
+   {% endblock %}
 </html>

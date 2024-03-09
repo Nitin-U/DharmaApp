@@ -1,288 +1,203 @@
 {% extends "login/base.html" %}
 {% block body_block %}
-
 {% load static %}
-
 <link rel="stylesheet" href="{% static 'login/css/services.css' %}">
 <link rel="stylesheet" href="{% static 'login/css/swiper-bundle.min.css' %}">
 <link rel="stylesheet" href="{% static 'login/css/swiper-style.css' %}">
-
-<style>
-    .card-body, .image-box {
-        background-color: #f8f9fa; /* light grey background color */
-        border-radius: 8px;
-    }
-    .card-body a {
-        color: #333333;
-    }
-    .home-newsletter input.form-control{
-        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
-    }
-</style>
-
 <!-- Jumbotron -->
 <div class="container my-5">
-    <div class="row justify-content-center align-items-center h-100">
-        <div class="col-sm-10 col-md-8 col-lg-5">
-            <h1 class="display-6 fw-bold text-center">Welcome</h1>
-            <p class="text-center">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment. 
-                <a href="" class="text-dark"> Learn More <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-            </p>
-            
-            <section class="home-newsletter">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="single">
-                                <form action="{% url 'cart:searchproduct' %}" method="POST">
-                                    {% csrf_token %}
-                                    <div class="input-group">
-                                        <input type="text" name="searched" class="form-control"
-                                        placeholder="Search Your Holy Places or Products">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-theme" type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
-                                        </span>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-        </div>
-    </div>
-</div>
-
-
-<!-- <div class="position-absolute top-0 end-0 col-2" style="border: 1px solid #000; border-radius:12px; margin-top: 100px; margin-right:10px; padding:10px;">
-    <div class="pt-2">
-        <h1 class="fw-bold" style="font-size: 20px;">Activities Near Me</h1>
-        <hr>
-        <ul class="text-start">
-            <p>ACTIVITIES 1</p>
-            <p>ACTIVITIES 1</p>
-            <p>ACTIVITIES 1</p>
-            <p>ACTIVITIES 1</p>
-        </ul>
-    </div>
-</div> -->
-<!-- Jumbotron -->
-
-<!-- Request A Quote Body -->
-<div class="container">  
-    <h1 class="display-6 fw-bold text-center">Popular Packages</h1>  
-    <div class="custom-card-body">
-        <div class="container-custom-swiper swiper">
-            <div class="slide-container-custom">
-                <div class="card-wrapper swiper-wrapper">
-                    <div class="card-custom swiper-slide shadow">
-                        <div class="image-box position-relative" style="width: 100%; height:120px">
-                            <img src="https://images.pexels.com/photos/19564307/pexels-photo-19564307/free-photo-of-majestic-temple-pashupatinath-temple-kathmandu-nepal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
-                        </div>
-                        
-                        <div class="card-body text-center py-3">
-                            <p class="card-title overflow-hidden text-truncate px-2">Pashupatinath Temple</p>
-                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
-                            <div class="star-rating mt-1">
-                                <ul class="list-inline p-0 m-0" style="color: gold;">
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-custom swiper-slide shadow">
-                        <div class="image-box position-relative" style="width: 100%; height:120px">
-                            <img src="https://images.pexels.com/photos/14440864/pexels-photo-14440864.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
-                        </div>
-                        
-                        <div class="card-body text-center py-3">
-                            <p class="card-title overflow-hidden text-truncate px-2">Swayambhunath Temple</p>
-                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
-                            <div class="star-rating mt-1">
-                                <ul class="list-inline p-0 m-0" style="color: gold;">
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-custom swiper-slide shadow">
-                        <div class="image-box position-relative" style="width: 100%; height:120px">
-                            <img src="https://images.pexels.com/photos/3873054/pexels-photo-3873054.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
-                        </div>
-                        
-                        <div class="card-body text-center py-3">
-                            <p class="card-title overflow-hidden text-truncate px-2">Boudha Temple</p>
-                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
-                            <div class="star-rating mt-1">
-                                <ul class="list-inline p-0 m-0" style="color: gold;">
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-custom swiper-slide shadow">
-                        <div class="image-box position-relative" style="width: 100%; height:120px">
-                            <img src="https://images.pexels.com/photos/14367176/pexels-photo-14367176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
-                        </div>
-                        
-                        <div class="card-body text-center py-3">
-                            <p class="card-title overflow-hidden text-truncate px-2">Bhaktapur Durbar Square</p>
-                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
-                            <div class="star-rating mt-1">
-                                <ul class="list-inline p-0 m-0" style="color: gold;">
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card-custom swiper-slide shadow">
-                        <div class="image-box position-relative" style="width: 100%; height:120px">
-                            <img src="https://images.unsplash.com/photo-1529018576489-4d1b669bdb15?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top object-fit-cover" alt="" />
-                            <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
-                        </div>
-                        
-                        <div class="card-body text-center py-3">
-                            <p class="card-title overflow-hidden text-truncate px-2">Muktinath</p>
-                            <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
-                            <div class="star-rating mt-1">
-                                <ul class="list-inline p-0 m-0" style="color: gold;">
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
-                                    <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    
-                </div>
+   <div class="row justify-content-center align-items-center h-100">
+      <div class="col-sm-10 col-md-8 col-lg-5">
+         <h1 class="display-6 fw-bold text-center">Welcome</h1>
+         <p class="text-center">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment. 
+            <a href="" class="text-dark"> Learn More <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+         </p>
+         <section class="home-newsletter">
+            <div class="container">
+               <div class="row">
+                  <div class="col-12">
+                     <div class="single">
+                        <form action="{% url 'cart:searchproduct' %}" method="POST">
+                           {% csrf_token %}
+                           <div class="input-group">
+                              <input type="text" name="searched" class="form-control"
+                                 placeholder="Search Your Holy Places or Products">
+                              <span class="input-group-btn">
+                              <button class="btn btn-theme" type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
+                              </span>
+                           </div>
+                        </form>
+                     </div>
+                  </div>
+               </div>
             </div>
-            <div class="swiper-button-next swiper-navBtn"></div>
-            <div class="swiper-button-prev swiper-navBtn"></div>
-            <div class="swiper-pagination"></div>
-        </div>
-    </div>
-    
+         </section>
+      </div>
+   </div>
+</div>
+<!-- Jumbotron -->
+<!-- Request A Quote Body -->
+<div class="container">
+   <h1 class="display-6 fw-bold text-center">Popular Packages</h1>
+   <div class="custom-card-body">
+      <div class="container-custom-swiper swiper">
+         <div class="slide-container-custom">
+            <div class="card-wrapper swiper-wrapper">
+               <div class="card-custom swiper-slide shadow">
+                  <div class="image-box position-relative" style="width: 100%; height:120px">
+                     <img src="https://images.pexels.com/photos/19564307/pexels-photo-19564307/free-photo-of-majestic-temple-pashupatinath-temple-kathmandu-nepal.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                     <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
+                  </div>
+                  <div class="card-body text-center py-3">
+                     <p class="card-title overflow-hidden text-truncate px-2">Pashupatinath Temple</p>
+                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <div class="star-rating mt-1">
+                        <ul class="list-inline p-0 m-0" style="color: gold;">
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-custom swiper-slide shadow">
+                  <div class="image-box position-relative" style="width: 100%; height:120px">
+                     <img src="https://images.pexels.com/photos/14440864/pexels-photo-14440864.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                     <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
+                  </div>
+                  <div class="card-body text-center py-3">
+                     <p class="card-title overflow-hidden text-truncate px-2">Swayambhunath Temple</p>
+                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <div class="star-rating mt-1">
+                        <ul class="list-inline p-0 m-0" style="color: gold;">
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-custom swiper-slide shadow">
+                  <div class="image-box position-relative" style="width: 100%; height:120px">
+                     <img src="https://images.pexels.com/photos/3873054/pexels-photo-3873054.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                     <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
+                  </div>
+                  <div class="card-body text-center py-3">
+                     <p class="card-title overflow-hidden text-truncate px-2">Boudha Temple</p>
+                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <div class="star-rating mt-1">
+                        <ul class="list-inline p-0 m-0" style="color: gold;">
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-custom swiper-slide shadow">
+                  <div class="image-box position-relative" style="width: 100%; height:120px">
+                     <img src="https://images.pexels.com/photos/14367176/pexels-photo-14367176.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="card-img-top object-fit-cover" alt="" />
+                     <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
+                  </div>
+                  <div class="card-body text-center py-3">
+                     <p class="card-title overflow-hidden text-truncate px-2">Bhaktapur Durbar Square</p>
+                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <div class="star-rating mt-1">
+                        <ul class="list-inline p-0 m-0" style="color: gold;">
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+               <div class="card-custom swiper-slide shadow">
+                  <div class="image-box position-relative" style="width: 100%; height:120px">
+                     <img src="{% static 'login/images/muktinath.jpg' %}" class="card-img-top object-fit-cover" alt="" />
+                     <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
+                  </div>
+                  <div class="card-body text-center py-3">
+                     <p class="card-title overflow-hidden text-truncate px-2">Muktinath</p>
+                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <div class="star-rating mt-1">
+                        <ul class="list-inline p-0 m-0" style="color: gold;">
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
+                           <li class="list-inline-item"><i class="fa-solid fa-star-half-stroke fa-xs"></i></i></li>
+                        </ul>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="swiper-button-next swiper-navBtn"></div>
+         <div class="swiper-button-prev swiper-navBtn"></div>
+         <div class="swiper-pagination"></div>
+      </div>
+   </div>
 </div>
 <!-- Card Body -->
-
 <!-- <div class="container container-bg mb-5 shadow" id="contact-container"> -->
-    <div class="container mb-5">
-        <h1 class="display-6 fw-bold text-center">Request A Quote</h1>
-        <div class="row">
-            <div class="col-lg-6 col-md-8 col-sm-10 mx-auto shadow p-4 rounded">
-                <form>
-                    <div class="col-md-12">
-                        <label for="fullname" class="form-label">Full Name</label>
-                        <input class="form-control" type="text" name="fullname" placeholder="Enter Your Name Here . . .">
-                    </div>
-                    
-                    <div class="col-md-12 mt-4">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea name="message" class="form-control" rows="5" placeholder="Enter Your Message Here . . ."></textarea>
-                    </div>
-                    
-                    <div class="row">
-                        <div class="col-md-6 mt-4">
-                            <label for="stardate" class="form-label">Start Date</label>
-                            <input type="date" name="startdate" id="start_date" class="form-control" placeholder="Your Start Date"></input>
-                        </div>
-                        
-                        <div class="col-md-6 mt-4">
-                            <label for="enddate" class="form-label">End Date</label>
-                            <input type="date" name="enddate" id="end_date" class="form-control" placeholder="Your End Date" onchange="getDays()"></input>
-                        </div>
-                    </div>
-                    
-                    <div class="col-md-12 mt-4">
-                        <label for="totaldays" class="form-label">No. of Days</label>
-                        <input class="form-control" type="number" id="days" name="totaldays" placeholder="Total Days . . .">
-                    </div>
-                    
-                    <div class="col-md-12 mt-4">
-                        <label for="totalguest" class="form-label">No. of Guests</label>
-                        <input class="form-control" type="number" name="totalguest" placeholder="Total No. of Guests Here . . .">
-                    </div>
-                    
-                    <div class="col-md-12 mt-4">
-                        <label for="email" class="form-label">Email</label>
-                        <input class="form-control" type="email" name="email" placeholder="Enter Your Email Here . . .">
-                    </div>
-                    
-                    <div class="col-md-12 mt-4">
-                        <label for="phone" class="form-label">Contact Number</label>
-                        <input class="form-control" type="tel" name="phone" placeholder="Your Contact Number Here . . .">
-                    </div>
-                    
-                    <div class="d-flex mt-4">
-                        <button type="submit" class="btn btn-primary w-100 justify-content-evenly me-2 rounded-pill">Submit</button>
-                        <button type="reset" class="btn btn-tertiary w-100 justify-content-evenly ms-2 rounded-pill">Reset</button>
-                    </div>
-                </form>
+<div class="container mb-5">
+   <h1 class="display-6 fw-bold text-center">Request A Quote</h1>
+   <div class="row">
+      <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
+         <form class="shadow p-4 rounded">
+            <div class="col-md-12">
+               <label for="fullname" class="form-label">Full Name</label>
+               <input class="form-control" type="text" name="fullname" placeholder="Enter Your Name Here . . .">
             </div>
-        </div>
-    </div>
-    
-    <!-- Our Services Body -->
-    
-    <script src="{% static 'login/js/swiper-bundle.min.js' %}"></script>
-    <script src="{% static 'login/js/swiper-script.js' %}"></script>
-    <script src="jquery-3.2.1.min.js"></script>
-    <script>
-        // Function to initialize date picker and set min date to today
-        function initializeDatepicker() {
-            var today = new Date().toISOString().split('T')[0]; // Get today's date in YYYY-MM-DD format
-            document.getElementById('start_date').setAttribute('min', today);
-            document.getElementById('end_date').setAttribute('min', today);
-        }
-        
-        // Call the initializeDatepicker function when the page is loaded
-        window.onload = function() {
-            initializeDatepicker();
-        };
-        
-        function getDays() {
-            var start_date = new Date(document.getElementById('start_date').value);
-            var end_date = new Date(document.getElementById('end_date').value);
-            var time_diff = end_date.getTime() - start_date.getTime();
-            var days_diff = time_diff / (1000*3600*24);
-            document.getElementById('days').value = days_diff;
-            toggleDaysLabel(); // Call the function to toggle the label visibility
-        }
-        
-        function toggleDaysLabel() {
-            var daysInput = document.getElementById('days');
-            var daysLabel = document.getElementById('days_label');
-            
-            if (daysInput.value !== '') {
-                daysLabel.style.display = 'none'; // Hide the label if input has value
-            } else {
-                daysLabel.style.display = 'block'; // Show the label if input is empty
-            }
-        }
-    </script>
-    
-    {% endblock %}
+            <div class="col-md-12 mt-4">
+               <label for="message" class="form-label">Message</label>
+               <textarea name="message" class="form-control" rows="5" placeholder="Enter Your Message Here . . ."></textarea>
+            </div>
+            <div class="row">
+               <div class="col-md-6 mt-4">
+                  <label for="stardate" class="form-label">Start Date</label>
+                  <input type="date" name="startdate" id="start_date" class="form-control" placeholder="Your Start Date"></input>
+               </div>
+               <div class="col-md-6 mt-4">
+                  <label for="enddate" class="form-label">End Date</label>
+                  <input type="date" name="enddate" id="end_date" class="form-control" placeholder="Your End Date" onchange="getDays()"></input>
+               </div>
+            </div>
+            <div class="col-md-12 mt-4">
+               <label for="totaldays" class="form-label">No. of Days</label>
+               <input class="form-control" type="number" id="days" name="totaldays" placeholder="Total Days . . .">
+            </div>
+            <div class="col-md-12 mt-4">
+               <label for="totalguest" class="form-label">No. of Guests</label>
+               <input class="form-control" type="number" name="totalguest" placeholder="Total No. of Guests Here . . .">
+            </div>
+            <div class="col-md-12 mt-4">
+               <label for="email" class="form-label">Email</label>
+               <input class="form-control" type="email" name="email" placeholder="Enter Your Email Here . . .">
+            </div>
+            <div class="col-md-12 mt-4">
+               <label for="phone" class="form-label">Contact Number</label>
+               <input class="form-control" type="tel" name="phone" placeholder="Your Contact Number Here . . .">
+            </div>
+            <div class="d-flex mt-4">
+               <button type="submit" class="btn btn-primary me-2">Submit</button>
+               <button type="reset" class="btn btn-outline-primary ms-2">Reset</button>
+            </div>
+         </form>
+      </div>
+   </div>
+</div>
+<!-- JavaScript Source -->
+<script src="{% static 'login/js/swiper-bundle.min.js' %}"></script>
+<script src="{% static 'login/js/swiper-script.js' %}"></script>
+<script src="jquery-3.2.1.min.js"></script>
+<script src="{% static 'login/js/request-quote.js' %}"></script>
+{% endblock %}

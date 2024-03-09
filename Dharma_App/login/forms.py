@@ -46,28 +46,22 @@ class CreateUserForm(UserCreationForm):
                 code='invalid_phone_number_format'
             )
         
-    # Custom validations for phone number that checks what digits the phone number starts with
-    def validate_phone_number_start(value):
-        if not value.startswith('98'):
-            raise forms.ValidationError(('Phone number must start with "98"'),
-                code='invalid_phone_number_start'
-            )
 
-    firstname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your First Name *' }))
+    firstname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your First Name Here . . .' }))
 
-    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Middle Name' }), required=False)
+    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Middle Name Here . . .' }), required=False)
 
-    lastname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Last Name *' }))
+    lastname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Last Name Here . . .' }))
 
-    username = forms.CharField(max_length=124, validators=[check_digits_only], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your User Name *' }))
+    username = forms.CharField(max_length=124, validators=[check_digits_only], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your User Name Here . . .' }))
 
-    email = forms.EmailField(validators=[check_email_exists], widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Email *' }))
+    email = forms.EmailField(validators=[check_email_exists], widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Email Here . . .' }))
 
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Password *' }))
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Password Here . . .' }))
     
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Your Password *' }))
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Your Password . . .' }))
     
-    phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric, validate_phone_number_start], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number *' }))
+    phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number . . .' }))
     
     # role = forms.CheckboxInput(choices=UserData.USER_CHOICES, widget=forms.Select(attrs={'class': 'p-2 form-select rounded-pill shadow-sm px-4 text-muted', 'placeholder': 'Confirm Your Password' }))
 

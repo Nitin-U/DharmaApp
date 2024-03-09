@@ -23,6 +23,9 @@
   height: 100%;
   border-radius: 8px 8px 0 0;
 }
+.card-body a {
+  color: #333333;
+}
 .swiper-navBtn {
   color: #333333;
   height: 50px;

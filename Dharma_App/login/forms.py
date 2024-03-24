@@ -62,46 +62,50 @@ class CreateUserForm(UserCreationForm):
     password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Your Password . . .' }))
     
     phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number . . .' }))
-    
-    # role = forms.CheckboxInput(choices=UserData.USER_CHOICES, widget=forms.Select(attrs={'class': 'p-2 form-select rounded-pill shadow-sm px-4 text-muted', 'placeholder': 'Confirm Your Password' }))
 
     role = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input' }), required=False)
+
+    # user_image = forms.ImageField(required=False, widget=forms.FileInput(attrs={'class':'form-control', 'type':'file'}))
+    user_image = forms.ImageField(required=False)
     
     class Meta:
 
         model = User
-        fields = ['firstname', 'lastname', 'username', 'phone_number', 'role', 'email', 'password1', 'password2']
+        fields = ['firstname', 'lastname', 'username', 'phone_number', 'role', 'email', 'password1', 'password2', 'user_image']
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.fields['username'].widget.attrs.update({'autofocus': False})
         self.fields['firstname'].widget.attrs.update({'autofocus': True})
 
-#
+#Class to render login form
 class LoginForm(forms.Form):
     username = forms.CharField(max_length=124, validators=[], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Username' }))
 
     password = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Password' }))
 
-# UserProfileForm class to render fields from User Model during User Update on user profile form
-class UserProfileForm(forms.ModelForm):
-    # username = forms.CharField(max_length=20, required=True)
-    # email = forms.EmailField(required=True)
-
-    username = forms.CharField(max_length=20, required=True, widget=forms.TextInput(attrs={'class': 'form-control'}))
-    email = forms.EmailField(required=True, widget=forms.EmailInput(attrs={'class': 'form-control'}))
+#Class to render User Model default fields onto profile page
+class ProfileForm(forms.ModelForm):
+    username = forms.CharField(max_length=20, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    first_name = forms.CharField(max_length=20, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    last_name = forms.CharField(max_length=20, required=False, widget=forms.TextInput(attrs={'class': 'form-control'}))
+    email = forms.EmailField(required=False, widget=forms.EmailInput(attrs={'class': 'form-control-plaintext', 'type': 'text', 'readonly': 'readonly'}))
 
     class Meta:
         model = User
-        fields = ['username', 'email']
+        fields = ['username', 'first_name', 'last_name', 'email']
 
-# UserDataForm class to render fields from UserData Model during User Update on user profile form
-class UserDataForm(forms.ModelForm):
-    phone_number = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}))
-    role = forms.BooleanField(widget=forms.CheckboxInput(attrs={'class': 'form-check-input' }), required=False)
-    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'p-2 form-control rounded-pill shadow-sm px-4 text-dark', 'placeholder': 'Enter Your Middlename' }), required=False)
-
+#Class to render User Model's extra fields onto profile page
+class ProfileExtraFieldsForm(forms.ModelForm):
+    phone_number = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control'}), required=False)
+    role = forms.CharField(widget=forms.TextInput(attrs={'class': 'form-control', 'readonly': 'readonly' }), required=False)
+    middlename = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Middlename' }), required=False)
+    contact_address = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Contact Address . . .' }), required=False)
+    mailing_address = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Mailing Address . . .' }), required=False)
+    user_image = forms.ImageField(required=False, widget=forms.FileInput(attrs={'class':'form-control'}))
+    
     class Meta:
         model = UserData
-        fields = ['phone_number', 'role', 'middlename']
+        fields = ['phone_number', 'role', 'middlename', 'contact_address', 'mailing_address', 'user_image']
+
         

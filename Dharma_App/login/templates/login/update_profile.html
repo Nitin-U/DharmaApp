@@ -1,85 +1,143 @@
 {% extends 'login/base.html' %}
 {% block body_block %}
+{% load static %}
+<style>
+    .profile-image{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    /* CSS for small screens */
+    @media (min-width: 0px) and (max-width: 767.98px) {
+        .large-screen-visible {
+            display: none;
+        }
+    }
+    
+    /* CSS for large screens */
+    @media (min-width: 768px) {
+        .small-screen-visible {
+            display: none;
+        }
+    }
+    
+</style>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Update Profile</title>
-</head>
+<div class="container mb-5">
+    <div class="heading-container text-start mt-2 mb-3">
+        <h2 class="display-6 fw-bold">Personal Information:</h2>
+    </div>
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- {{ form1.as_p }}
+        {{ form2.as_p }} -->
+        <!-- {{ form1.username }}
+        {{ form1.first_name }}
+        {{ form2.middlename }}
+        {{ form1.last_name }}
+        {{ form1.email }}
+        {{ form2.phone_number }}
+        {{ form2.role }}
+        {{ form2.contact_address }}
+        {{ form2.mailing_address }}
+        {{ form2.user_image }} -->
 
-<body>
-    <div class="container py-5 my-5">
-        <div class="main-body">
-            <div class="mb-5" style="width: fit-content; margin: auto;">
-                <h1 class="display-6 fw-bold">Manage Profile</h1>
-            </div>
-            
-            <div class="row">
-                <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt="Admin" class="rounded-circle p-1 bg-primary" width="110">
-                    <div class="mt-3">
-                        <h4>{{ form_user.username.value }}</h4>
-                        <p class="text-secondary mb-1">{{ form_userData.role.value }}</p>
-                        <!-- <p class="text-muted font-size-sm">Address</p> -->
-                    </div>
-                </div>
-                
-                <div class="col-12">
-                    <div class="card">
-                        <form method="POST" action="">
-                            {% csrf_token %}
-                            <div class="card-body">
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Username</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        {{ form_user.username }}
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Email</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        {{ form_user.email }}
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Phone</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        {{ form_userData.phone_number }}
-                                    </div>
-                                </div>
-                                <div class="row mb-3">
-                                    <div class="col-sm-3">
-                                        <h6 class="mb-0">Role</h6>
-                                    </div>
-                                    <div class="col-sm-9 text-secondary">
-                                        {{ form_userData.role }}
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-sm-3"></div>
-                                    <div class="col-sm-9 text-secondary">
-                                        <button class="btn btn-primary" type="submit">Update Profile</button>
-                                        <a class="btn btn-primary" href="{% url 'cart:productlist' %}">Manage Products
-                                        </a>                                     
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+        <div class="row">
+            <div class="col text-center mb-3">
+                {% if User_Image %}
+                    <img class="profile-image" src="{{ User_Image.url }}" alt="User Image">
+
+                {% else %}
+                    <img class="profile-image" src="{% static 'login/images/no_image.png' %}" alt="User Image">
+                {% endif %}
             </div>
         </div>
-    </div>
 
-    {% endblock %}
-    
-</body>
-</html>
+        <!-- For small screens -->
+        <div class="row mb-3 small-screen-visible">
+            <div class="col-md-4">
+                <label for="firstname">Firstname:</label>
+                {{ form1.first_name }} 
+            </div>
+            <div class="col-md-4">
+                <label for="middlename">Middlename:</label>
+                {{ form2.middlename }} 
+            </div>
+            <div class="col-md-4">
+                <label for="lastname">Lastname:</label>
+                {{ form1.last_name }}
+            </div>
+        </div>
+
+        <!-- For large screens -->
+        <div class="row mb-3 large-screen-visible">
+            <div class="col-md-4">
+                Firstname, Middlename, Lastname:
+            </div>
+            <div class="col-md-3">
+                {{ form1.first_name }} 
+            </div>
+            <div class="col-md-2">
+                {{ form2.middlename }} 
+            </div>
+            <div class="col-md-3">
+                {{ form1.last_name }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-4"><label for="contact_address">Username:</label></div>
+            
+            <div class="col-sm-12 col-md-8">
+                {{ form1.username }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-4"><label for="contact_address">Contact Address:</label></div>
+            
+            <div class="col-sm-12 col-md-8">
+                {{ form2.contact_address }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-4"><label for="contact_address">Mailing Address:</label></div>
+            
+            <div class="col-sm-12 col-md-8">
+                {{ form2.mailing_address }} 
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-4"><label for="contact_address">Phone Number:</label></div>
+            
+            <div class="col-sm-12 col-md-8">
+                {{ form2.phone_number }} 
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-4"><label for="contact_address">Email:</label></div>
+            
+            <div class="col-sm-12 col-md-8">
+                {{ form1.email }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-4"><label for="contact_address">Role:</label></div>
+            
+            <div class="col-sm-12 col-md-8">
+                {{ form2.role }}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="col-sm-12 col-md-4"><label for="contact_address">Upload Image:</label></div>
+            
+            <div class="col-sm-12 col-md-8">
+                {{ form2.user_image }}
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Update</button>
+    </form>
+</div>
+
+{% endblock %}

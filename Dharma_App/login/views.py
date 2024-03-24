@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
+from django.urls import reverse
 
 #For authentication system - register, login, logout & profile update
-from . forms import CreateUserForm, LoginForm, UserProfileForm, UserDataForm
+from . forms import CreateUserForm, LoginForm, ProfileForm, ProfileExtraFieldsForm
 from django.contrib.auth.models import User
 from login.models import UserData
 from django.contrib.auth import authenticate, login, logout
@@ -35,7 +36,8 @@ def register(request):
         return render (request, 'login/index.html')
 
     if request.method == "POST":
-        form = CreateUserForm(request.POST)
+        print(request.POST)
+        form = CreateUserForm(request.POST, request.FILES)
         if form.is_valid():
 
             # Create User instance
@@ -78,6 +80,7 @@ def register(request):
 
             return redirect('homepage')
     else:
+        print(CreateUserForm.errors)
         form = CreateUserForm()
 
     return render(request, 'login/register.html', {'registerform': form})
@@ -116,37 +119,59 @@ def my_login(request):
                     request.session.set_expiry(0)
 
                 
-                return render(request,'login/index.html',{'username': username})
+                redirect_url = reverse('homepage') + f'?username={username}'
+                return redirect(redirect_url)
             
         # form is not valid or user is not authenticated
         messages.error(request, "Wrong credentials entered")
         return render(request,'login/my_login.html',{'loginform': form})
 
+# def update_user(request):
+#     if request.user.is_authenticated:
+#         current_user = User.objects.get(id = request.user.id)
+#         user_data, created = UserData.objects.get_or_create(user = current_user)
+
+#         if request.method == 'POST':
+#             form1 = ProfileForm(request.POST or None, instance = current_user)
+#             form2 = ProfileExtraFieldsForm(request.POST, instance = user_data)
+#             if form1.is_valid() and form2.is_valid():
+#                 form1.save()
+#                 form2.save()
+#                 return redirect('update_user')
+#             else:
+#                 form1 = ProfileForm(request.POST or None, instance = current_user)
+#                 form2 = ProfileExtraFieldsForm(request.POST, instance = user_data)
+#             return render(request, 'login/update_profile.html', {'form1':form1, 'form2':form2})
+        
+#         else:
+#             messages.error(request, "You must be logged in first!")
+#             return redirect('homepage')
+    
 def update_user(request):
-
     if request.user.is_authenticated:
+        current_user = User.objects.get(id=request.user.id)
+        user_data, created = UserData.objects.get_or_create(user=current_user)
 
-        current_user = User.objects.get(id = request.user.id)
-        user_data = UserData.objects.get(user = current_user)
+        if request.method == 'GET':
+            UserDatas = UserData.objects.all()
+            return render(request, 'login/update_profile.html', {'User_Image': user_data.user_image, 'form1': ProfileForm(instance=current_user), 'form2': ProfileExtraFieldsForm(instance=user_data)})
 
         if request.method == 'POST':
-            current_user_form = UserProfileForm(request.POST or None, instance = current_user)
-            user_data_form = UserDataForm(request.POST or None, instance = user_data)
-
-            if current_user_form.is_valid() and user_data_form.is_valid():
-                current_user_form.save()
-                user_data_form.save()
-                messages.success(request, 'Profile updated successfully')
-                return redirect(request.path)
+            print(request.POST)
+            form1 = ProfileForm(request.POST, request.FILES, instance=current_user)
+            form2 = ProfileExtraFieldsForm(request.POST, request.FILES, instance=user_data)
+            if form1.is_valid() and form2.is_valid():
+                form1.save()
+                form2.save()
+                return redirect('update_user')
         else:
-            current_user_form = UserProfileForm(instance = current_user)
-            user_data_form = UserDataForm(instance = user_data)
+            form1 = ProfileForm(instance=current_user)
+            form2 = ProfileExtraFieldsForm(instance=user_data)
 
-        return render(request, 'login/update_profile.html', {'form_user':current_user_form, 'form_userData':user_data_form})
-    
+        return render(request, 'login/update_profile.html', {'form1': form1, 'form2': form2})
     else:
-
-        messages.success(request, ("You must be logged in to update profile"))
+        messages.error(request, "You must be logged in first!")
+        return redirect('homepage')
     
 
 # View for rendering the user dashboard
@@ -170,8 +195,8 @@ def activate(request, uidb64, token):
         myuser.is_active = True
         myuser.save()
         # login(request, myuser)
-        messages.success(request, ("Verification Successful"))
-        return redirect('homepage')
+        messages.success(request, ("Verification Successful. Please log in now."))
+        return redirect('my_login')
     else:
         return render(request, 'login/confirmation_fail.html')
     

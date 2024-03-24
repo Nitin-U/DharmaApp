@@ -1,15 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
 /*Global Font Size/Style CSS Here*/
 * {
-	font-family: "Montserrat", sans-serif;
+	font-family: "Inter", sans-serif;
 	font-optical-sizing: auto;
-	font-weight: 500;
 	font-style: normal;
-	font-size: 16px !important;
+	font-variation-settings:
+		"slnt" 0;
+	font-size: 17px !important;
 }
 
 h1 {
-	font-size: 26px !important;
-	margin-bottom: 30px;
+	font-family: "Overpass", sans-serif;
+	font-optical-sizing: auto;
+  	font-style: normal;
+	font-size: 40px !important;
+	letter-spacing: -1.5px;
+	margin-bottom: 10px;
+}
+h2 {
+	font-family: "Overpass", sans-serif;
+	font-optical-sizing: auto;
+  	font-style: normal;
+	font-size:30px !important;
 }
 
 a {
@@ -32,8 +44,8 @@ i.fa-xs {
 body {
 	background-color: #F8F8F8;
 	min-height: 100vh;
-	/* display: flex;
-	flex-direction: column; */
+	display: flex;
+	flex-direction: column;
 }
 
 /*Navigation Bar CSS Here*/
@@ -66,14 +78,6 @@ body {
 /*Navigation Bar Link's Dropdown Symbol Removed Here*/
 .navbar .dropdown-toggle::after {
 	display: none !important;
-}
-
-a.navbar-brand img {
-	width: 40px;
-	/* mix-blend-mode: difference; */
-	border-radius: 20px;
-	padding: 0;
-	margin: 0;
 }
 
 /*Extra Navigation Bar for Contact Info*/
@@ -124,7 +128,7 @@ a.navbar-brand img {
 a.nav-link {
 	padding: 8px;
 	margin: 0 3px;
-	border-radius: 2px;
+	border-radius: 3px;
 	color: #F8F8F8;
 	transition: all 0.5s;
 }
@@ -209,6 +213,10 @@ footer a, a.text-body {
 		font-size: 15px !important;
 	}
 
+	h1 {
+		font-size: 35px !important;
+	}
+
 	/*Changing Homepage Search Bar's Width on Medium Screen Devices Here*/
 	/* .home-newsletter .single {
 		max-width: 90%;
@@ -220,6 +228,10 @@ footer a, a.text-body {
 
 	* {
 		font-size: 14px !important;
+	}
+
+	h1 {
+		font-size: 30px !important;
 	}
 	/*Changing Homepage Search Bar's Width On Smaller Devices Here*/
 	/* .home-newsletter .single {

@@ -14,6 +14,9 @@ class UserData(models.Model):
         ('customer', 'Customer'),
     ]
     role = models.CharField(max_length=20, choices=USER_ROLE, blank=True, null=True)
+    contact_address = models.CharField(max_length=100, blank=True, null=True)
+    mailing_address = models.CharField(max_length=100, blank=True, null=True)
+    user_image = models.ImageField(null=True, upload_to='images/')
 
     def __str__(self):
-        return self.middlename
+        return str(self.middlename)

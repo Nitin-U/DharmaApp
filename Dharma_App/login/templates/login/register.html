@@ -11,12 +11,12 @@
       <title>Register</title>
    </head>
    <body>
-      <div class="heading-container text-center my-5">
+      <div class="heading-container text-center my-2">
          <h1 class="display-6 fw-bold">Register</h1>
          <!-- <p class="fw-light">New to Dharmam Saranam Gachhyami? Register Here.</p> -->
       </div>
-      <div class="container mb-5 col-md-10">
-         <form method="POST" class="row g-3">
+      <div class="container mb-4 col-md-10">
+         <form method="POST" class="row g-3" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="col-md-4">
                <label for="firstname" class="form-label">First Name *</label>
@@ -122,6 +122,19 @@
                </span>
                {% endfor %}
             </div>
+            <!-- <div class="col-md-4">
+               <label for="image" class="form-label">Upload Image *</label>
+               {% if registerform.user_image.errors %} 
+               {{registerform.user_image|add_attr:"form-control is-invalid"}} 
+               {% else %} 
+               {{registerform.user_image}} 
+               {% endif %} 
+               {% for error in registerform.user_image.errors %}    
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
+            </div> -->
             <div class="col-md-4 d-flex align-items-center" style="margin-top: 30px;">
                <div class="form-check">
                   <!-- <input class="form-check-input" type="checkbox" id="gridCheck"> -->
@@ -140,11 +153,25 @@
                   {% endfor %}
                </div>
             </div>
+
+            <p class="fw-light pt-2"> User Terms & Conditions</p>
+            <div class="container">
+               <ul class="fw-light">
+                  <li>
+                     <a href="">For Buyer</a>
+                  </li>
+                  <li>
+                     <a href="">For Seller</a>
+                  </li>
+               </ul>
+               <p class="fw-light">By clicking Register, you agree to the terms and condition.</p>
+            </div>
+            <hr style="color: #333333">
+
             <div class="col-12 d-flex justify-content-center">
                <button type="submit" class="btn btn-primary">Register</button>
             </div>
-            <hr style="color: #333333">
-            <p class="fw-light text-center"> By clicking Register, you agree to the <a href="" class="ms-1"> term of use </a> </p>
+            
          </form>
       </div>
    </body>

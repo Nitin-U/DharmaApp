@@ -17,6 +17,7 @@ class UserData(models.Model):
     contact_address = models.CharField(max_length=100, blank=True, null=True)
     mailing_address = models.CharField(max_length=100, blank=True, null=True)
     user_image = models.ImageField(null=True, upload_to='images/')
+    agreeToTerms = models.BooleanField(default=True)
 
     def __str__(self):
         return str(self.middlename)

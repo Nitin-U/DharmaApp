@@ -55,28 +55,12 @@ def register(request):
             user_data = UserData(phone_number=form.cleaned_data['phone_number'], role=role, middlename=form.cleaned_data['middlename'], user=myuser)
             user_data.save()
 
-            # WELCOME EMAIL
-            subject = "Welcome to Dharma Saranam Gachhami " + myuser.username
-            message = "Hello " + myuser.username + "! \n" + "Welcome to Dharma Saranam Gachhyyami. Your account has been created, please confirm your email now. "
-            from_email = settings.EMAIL_HOST_USER
-            to_list = [myuser.email]
-            send_mail(subject, message, from_email, to_list, fail_silently = False)
-
             # Email Address Confirmation Mail
             current_site = get_current_site(request)
             email_subject = "Confirm your email @ Dharma Saranam Gachhami"
-            message2 = render_to_string('login/email_confirmation.html',{
-                'name' : myuser.username,
-                'domain' : current_site.domain,
-                'uid' : urlsafe_base64_encode(force_bytes(myuser.pk)),
-                'token' : generate_token.make_token(myuser)
-            })
-            email = EmailMessage(
-                email_subject,
-                message2,
-                settings.EMAIL_HOST_USER,
-                [myuser.email],
-            )
+            message2 = render_to_string('login/email_confirmation.html',{ 'name' : myuser.username, 'domain' : current_site.domain, 'uid' : urlsafe_base64_encode(force_bytes(myuser.pk)), 'token' : generate_token.make_token(myuser) })
+            email = EmailMessage(email_subject, message2, settings.EMAIL_HOST_USER, [myuser.email])
+            email.content_subtype = 'html'  # Set content type to HTML
             email.fail_silently = False
             email.send()
 
@@ -204,4 +188,4 @@ def activate(request, uidb64, token):
     
 # Coming-soon Page
 def comingsoon(request):
-    return render (request, 'login/comingsoon.html')
+    return render (request, 'login/email_confirmation.html')

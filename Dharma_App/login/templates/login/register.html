@@ -135,9 +135,9 @@
                </span>
                {% endfor %}
             </div> -->
+            
             <div class="col-md-4 d-flex align-items-center" style="margin-top: 30px;">
                <div class="form-check">
-                  <!-- <input class="form-check-input" type="checkbox" id="gridCheck"> -->
                   {% if registerform.role.errors %} 
                   {{registerform.role|add_attr:"form-control is-invalid"}} 
                   {% else %} 
@@ -154,17 +154,35 @@
                </div>
             </div>
 
-            <p class="fw-light pt-2"> User Terms & Conditions</p>
-            <div class="container">
-               <ul class="fw-light">
-                  <li>
-                     <a href="">For Buyer</a>
-                  </li>
-                  <li>
-                     <a href="">For Seller</a>
-                  </li>
-               </ul>
-               <p class="fw-light">By clicking Register, you agree to the terms and condition.</p>
+            <!-- <div class="container mt-4">
+               <div class="form-check">
+                  {% if registerform.role.errors %} 
+                  {{registerform.role|add_attr:"form-control is-invalid"}} 
+                  {% else %} 
+                  {{registerform.role}} 
+                  {% endif %} 
+                  <label class="form-check-label" for="gridCheck">
+                  Are You A Seller ?
+                  </label>
+                  {% for error in registerform.role.errors %} 
+                  <span style="color: #b71c1c">
+                  {{ error }}
+                  </span>
+                  {% endfor %}
+               </div>
+            </div> -->
+
+            <div class="container mt-4 mb-2">
+               {{ registerform.agreeToTerms }}
+               <label class="form-check-label" for="gridCheck">
+                  I agree to the terms and conditions *
+               </label>
+               <br>
+               {% for error in registerform.agreeToTerms.errors %} 
+               <span style="color: #b71c1c">
+               {{ error }}
+               </span>
+               {% endfor %}
             </div>
             <hr style="color: #333333">
 

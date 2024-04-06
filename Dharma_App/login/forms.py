@@ -46,6 +46,10 @@ class CreateUserForm(UserCreationForm):
                 code='invalid_phone_number_format'
             )
         
+    def validate_password(value):
+        if len(value) < 8:
+            raise forms.ValidationError("Password cannot be less than 8 digits")
+
 
     firstname = forms.CharField(max_length=124, widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your First Name Here . . .' }))
 
@@ -57,9 +61,9 @@ class CreateUserForm(UserCreationForm):
 
     email = forms.EmailField(validators=[check_email_exists], widget=forms.EmailInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Email Here . . .' }))
 
-    password1 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Password Here . . .' }))
+    password1 = forms.CharField(validators=[validate_password], widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Password Here . . .' }))
     
-    password2 = forms.CharField(widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Your Password . . .' }))
+    password2 = forms.CharField(validators=[validate_password], widget=forms.PasswordInput(attrs={'class': 'form-control', 'placeholder': 'Confirm Your Password . . .' }))
     
     phone_number = forms.CharField(validators=[validate_phone_number_length, validate_phone_number_numeric], widget=forms.TextInput(attrs={'class': 'form-control', 'placeholder': 'Enter Your Phone Number . . .' }))
 
@@ -67,6 +71,8 @@ class CreateUserForm(UserCreationForm):
 
     # user_image = forms.ImageField(required=False, widget=forms.FileInput(attrs={'class':'form-control', 'type':'file'}))
     user_image = forms.ImageField(required=False)
+
+    agreeToTerms = forms.BooleanField(error_messages={'required': 'You must agree to terms and conditions'}, widget=forms.CheckboxInput(attrs={'class': 'form-check-input' }), required=True)
     
     class Meta:
 

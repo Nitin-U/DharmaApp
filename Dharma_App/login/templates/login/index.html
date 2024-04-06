@@ -1,6 +1,7 @@
 {% extends "login/base.html" %}
 {% block body_block %}
 {% load static %}
+{% load i18n %}
 <link rel="stylesheet" href="{% static 'login/css/services.css' %}">
 <link rel="stylesheet" href="{% static 'login/css/swiper-bundle.min.css' %}">
 <link rel="stylesheet" href="{% static 'login/css/swiper-style.css' %}">
@@ -8,9 +9,10 @@
 <div class="container my-2">
    <div class="row justify-content-center align-items-center h-100">
       <div class="col-sm-10 col-md-8 col-lg-5">
-         <h1 class="display-6 fw-bold text-center">Welcome</h1>
-         <p class="text-center">Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment.
-            <a href="" class="text-dark"> Learn More <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+         <!-- <h1 class="display-6 fw-bold text-center">Welcome</h1> -->
+         <h1 class="display-6 fw-bold text-center">{% trans "Welcome" %}</h1>
+         <p class="text-center">{% trans "Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment." %}
+            <a href="" class="text-dark"> {% trans "Learn More" %} <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
          </p>
          <section class="home-newsletter">
             <div class="container">
@@ -21,7 +23,7 @@
                            {% csrf_token %}
                            <div class="input-group">
                               <input type="text" name="searched" class="form-control"
-                                 placeholder="Search Your Holy Places or Products">
+                                 placeholder="{% trans "Search Your Holy Destinations" %}">
                               <span class="input-group-btn">
                               <button class="btn btn-theme" type="submit"><i class="fa-solid fa-magnifying-glass fa-xl"></i></button>
                               </span>
@@ -38,7 +40,7 @@
 <!-- Jumbotron -->
 <!-- Request A Quote Body -->
 <div class="container mt-2">
-   <h1 class="display-6 fw-bold text-center">Popular Packages</h1>
+   <h1 class="display-6 fw-bold text-center">{% trans "Popular Packages" %}</h1>
    <div class="custom-card-body">
       <div class="container-custom-swiper swiper">
          <div class="slide-container-custom">
@@ -49,8 +51,8 @@
                      <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                   </div>
                   <div class="card-body text-center py-3">
-                     <p class="card-title overflow-hidden text-truncate px-2">Pashupatinath Temple</p>
-                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <p class="card-title overflow-hidden text-truncate px-2">{% trans "Pashupatinath Temple" %}</p>
+                     <p class="m-0 p-0">{% trans "$TBD" %} | <a href="">{% trans "View Details" %}</a></p>
                      <div class="star-rating mt-1">
                         <ul class="list-inline p-0 m-0" style="color: gold;">
                            <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -68,8 +70,8 @@
                      <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                   </div>
                   <div class="card-body text-center py-3">
-                     <p class="card-title overflow-hidden text-truncate px-2">Swayambhunath Temple</p>
-                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <p class="card-title overflow-hidden text-truncate px-2">{% trans "Swayambhunath Temple" %}</p>
+                     <p class="m-0 p-0">{% trans "$TBD" %} | <a href="">{% trans "View Details" %}</a></p>
                      <div class="star-rating mt-1">
                         <ul class="list-inline p-0 m-0" style="color: gold;">
                            <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -87,8 +89,8 @@
                      <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                   </div>
                   <div class="card-body text-center py-3">
-                     <p class="card-title overflow-hidden text-truncate px-2">Boudha Temple</p>
-                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <p class="card-title overflow-hidden text-truncate px-2">{% trans "Boudha Temple" %}</p>
+                     <p class="m-0 p-0">{% trans "$TBD" %} | <a href="">{% trans "View Details" %}</a></p>
                      <div class="star-rating mt-1">
                         <ul class="list-inline p-0 m-0" style="color: gold;">
                            <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -106,8 +108,8 @@
                      <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                   </div>
                   <div class="card-body text-center py-3">
-                     <p class="card-title overflow-hidden text-truncate px-2">Bhaktapur Durbar Square</p>
-                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <p class="card-title overflow-hidden text-truncate px-2">{% trans "Bhaktapur Durbar Square" %}</p>
+                     <p class="m-0 p-0">{% trans "$TBD" %} | <a href="">{% trans "View Details" %}</a></p>
                      <div class="star-rating mt-1">
                         <ul class="list-inline p-0 m-0" style="color: gold;">
                            <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -125,8 +127,8 @@
                      <button class="btn btn-secondary position-absolute top-0 end-0"><i class="fa-solid fa-heart fa-xl"></i></button>
                   </div>
                   <div class="card-body text-center py-3">
-                     <p class="card-title overflow-hidden text-truncate px-2">Muktinath</p>
-                     <p class="m-0 p-0">$TBD | <a href="">View Details</a></p>
+                     <p class="card-title overflow-hidden text-truncate px-2">{% trans "Muktinath" %}</p>
+                     <p class="m-0 p-0">{% trans "$TBD" %} | <a href="">{% trans "View Details" %}</a></p>
                      <div class="star-rating mt-1">
                         <ul class="list-inline p-0 m-0" style="color: gold;">
                            <li class="list-inline-item"><i class="fa fa-star fa-xs"></i></li>
@@ -149,47 +151,47 @@
 <!-- Card Body -->
 <!-- <div class="container container-bg mb-5 shadow" id="contact-container"> -->
 <div class="container mb-5">
-   <h1 class="display-6 fw-bold text-center">Request A Quote</h1>
+   <h1 class="display-6 fw-bold text-center">{% trans "Request A Quote" %}</h1>
    <div class="row">
       <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
          <form class="shadow p-4 rounded">
             <div class="col-md-12">
-               <label for="fullname" class="form-label">Full Name</label>
-               <input class="form-control" type="text" name="fullname" placeholder="Enter Your Name Here . . .">
+               <label for="fullname" class="form-label">{% trans "Full Name" %}</label>
+               <input class="form-control" type="text" name="fullname" placeholder="{% trans "Enter Your Name Here . . ." %}">
             </div>
             <div class="col-md-12 mt-4">
-               <label for="message" class="form-label">Message</label>
-               <textarea name="message" class="form-control" rows="5" placeholder="Enter Your Message Here . . ."></textarea>
+               <label for="message" class="form-label">{% trans "Message" %}</label>
+               <textarea name="message" class="form-control" rows="5" placeholder="{% trans "Enter Your Message Here . . ." %}"></textarea>
             </div>
             <div class="row">
                <div class="col-md-6 mt-4">
-                  <label for="stardate" class="form-label">Start Date</label>
+                  <label for="stardate" class="form-label">{% trans "Start Date" %}</label>
                   <input type="date" name="startdate" id="start_date" class="form-control" placeholder="Your Start Date"></input>
                </div>
                <div class="col-md-6 mt-4">
-                  <label for="enddate" class="form-label">End Date</label>
+                  <label for="enddate" class="form-label">{% trans "End Date" %}</label>
                   <input type="date" name="enddate" id="end_date" class="form-control" placeholder="Your End Date" onchange="getDays()"></input>
                </div>
             </div>
             <div class="col-md-12 mt-4">
-               <label for="totaldays" class="form-label">No. of Days</label>
-               <input class="form-control" type="number" id="days" name="totaldays" placeholder="Total Days . . .">
+               <label for="totaldays" class="form-label">{% trans "No. of Days" %}</label>
+               <input class="form-control" type="number" id="days" name="totaldays" placeholder="{% trans "Total Days . . ." %}">
             </div>
             <div class="col-md-12 mt-4">
-               <label for="totalguest" class="form-label">No. of Guests</label>
-               <input class="form-control" type="number" name="totalguest" placeholder="Total No. of Guests Here . . .">
+               <label for="totalguest" class="form-label">{% trans "No. of Guests" %}</label>
+               <input class="form-control" type="number" name="totalguest" placeholder="{% trans "Total No. of Guests Here . . ." %}">
             </div>
             <div class="col-md-12 mt-4">
-               <label for="email" class="form-label">Email</label>
-               <input class="form-control" type="email" name="email" placeholder="Enter Your Email Here . . .">
+               <label for="email" class="form-label">{% trans "Email" %}</label>
+               <input class="form-control" type="email" name="email" placeholder="{% trans "Enter Your Email Here . . ." %}">
             </div>
             <div class="col-md-12 mt-4">
-               <label for="phone" class="form-label">Contact Number</label>
-               <input class="form-control" type="tel" name="phone" placeholder="Your Contact Number Here . . .">
+               <label for="phone" class="form-label">{% trans "Contact Number" %}</label>
+               <input class="form-control" type="tel" name="phone" placeholder="{% trans "Your Contact Number Here . . ." %}">
             </div>
             <div class="d-flex mt-4">
-               <button type="submit" class="btn btn-primary me-2">Submit</button>
-               <button type="reset" class="btn btn-outline-primary ms-2">Reset</button>
+               <button type="submit" class="btn btn-primary me-2">{% trans "Submit" %}</button>
+               <button type="reset" class="btn btn-outline-primary ms-2">{% trans "Reset" %}</button>
             </div>
          </form>
       </div>

@@ -1,4 +1,5 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,13 +20,6 @@
    <link rel="stylesheet" href="{% static 'login/css/base.css' %}">
 </head>
 <body>
-   <!-- <div class="nav-extra p-1">
-      <div class="container">
-         <i class="fa-regular fa-envelope m-2"></i><p style="display: inline;">info@visitholyplaces.com |</p>
-         <i class="fa-solid fa-mobile-screen-button m-2"></i><p style="display: inline;">+977-9811223344</p>
-      </div>
-   </div> -->
-   
    <nav class="navbar navbar-expand-lg sticky-top">
       <div class="container">
          <a class="navbar-brand p-0 m-0" href="{% url 'homepage' %}">
@@ -86,6 +80,20 @@
          </div>
       </div>
    </nav>
+
+   <div class="nav-extra p-1">
+      <div class="container text-end">
+         <!-- <i class="fa-regular fa-envelope m-2"></i><p style="display: inline;">info@visitholyplaces.com |</p>
+         <i class="fa-solid fa-mobile-screen-button m-2"></i><p style="display: inline;">+977-9811223344</p> -->
+
+         <img src="{% static 'login/images/np.svg' %}" alt="" width="25px"><p style="display: inline;"><a href="/ne/" class="me-2" style="color:#F8F8F8;">{% trans "Nepali" %}</a> |</p>
+
+         <img src="{% static 'login/images/us.svg' %}" alt="" width="20px" class="ms-2 me-2"><p style="display: inline;"><a href="/en/" style="color:#F8F8F8;">{% trans "English" %}</a> </p>
+
+         <!-- <a href="/ne/">Nepali</a> /
+         <a href="/en/">English</a> -->
+      </div>
+   </div>
    
    {% block body_block %}
    {% endblock %}

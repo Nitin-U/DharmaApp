@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     
     "login",
     "cart",
+    "django.contrib.humanize",
 ]
 
 MIDDLEWARE = [
@@ -66,6 +67,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+
+    "django.middleware.locale.LocaleMiddleware",
 ]
 
 ROOT_URLCONF = "Dharma_App.urls"
@@ -147,6 +150,14 @@ USE_I18N = True
 
 USE_TZ = True
 
+LANGUAGES = [
+    ('en', 'English'),
+    ('ne', 'Nepali'),
+]
+
+LOCALE_PATHS = [
+    BASE_DIR / 'locale/',
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+</head>
+
+{% extends 'login/base.html' %}
+
+<body>
+
+    {% block body_block %}
+
+    <p>Welcome, {{ user.username }} !</p>
+    <a href="{% url 'update_user' %}"><h1 class="text-center py-4">Update Profile</h1></a>
+
+    {% endblock %}
+    
+</body>
+</html>

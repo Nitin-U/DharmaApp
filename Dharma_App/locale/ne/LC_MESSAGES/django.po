@@ -1,0 +1,112 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-04-06 14:04+0545\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+#: .\login\views.py:34
+msgid "Welcome"
+msgstr "स्वागत छ"
+
+msgid "Discover divine destinations. Book your spiritual journey today and embark on a path of enlightenment."
+msgstr "ईश्वरीय गन्तव्यहरू पत्ता लगाउनुहोस्। आज आफ्नो आध्यात्मिक यात्रा बुक गर्नुहोस् र ज्ञानको मार्गमा लाग्नुहोस्."
+
+msgid "Learn More"
+msgstr "थप जानकारी"
+
+msgid "Search Your Holy Destinations"
+msgstr "आफ्नो पवित्र गन्तव्यहरू खोज्नुहोस्"
+
+msgid "Popular Packages"
+msgstr "लोकप्रिय प्याकेजहरू"
+
+msgid "Pashupatinath Temple"
+msgstr "पशुपतिनाथ मन्दिर"
+
+msgid "$TBD"
+msgstr "$ निर्धारण गर्न"
+
+msgid "View Details"
+msgstr "विवरणहरू हेर्नुहोस्"
+
+msgid "Swayambhunath Temple"
+msgstr "स्वयम्भूनाथ मन्दिर"
+
+msgid "Boudha Temple"
+msgstr "बौद्ध मन्दिर"
+
+msgid "Bhaktapur Durbar Square"
+msgstr "भक्तपुर दरबार स्क्वायर"
+
+msgid "Muktinath"
+msgstr "मुक्तिनाथ"
+
+msgid "Request A Quote"
+msgstr "एक उद्धरण अनुरोध गर्नुहोस्"
+
+msgid "Full Name"
+msgstr "पुरा नाम"
+
+msgid "Enter Your Name Here . . ."
+msgstr "यहाँ आफ्नो नाम प्रविष्ट गर्नुहोस् . . ."
+
+msgid "Message"
+msgstr "सन्देश"
+
+msgid "Enter Your Message Here . . ."
+msgstr "यहाँ आफ्नो सन्देश प्रविष्ट गर्नुहोस् . . ."
+
+msgid "Start Date"
+msgstr "सुरू मिति"
+
+msgid "End Date"
+msgstr "अन्त्य मिति"
+
+msgid "No. of Days"
+msgstr "दिनहरूको संख्या"
+
+msgid "Total Days . . ."
+msgstr "कुल दिनहरू . . ."
+
+msgid "No. of Guests"
+msgstr "अतिथिहरूको संख्या"
+
+msgid "Total No. of Guests Here . . ."
+msgstr "यहाँ अतिथिहरूको कुल संख्या . . ."
+
+msgid "Email"
+msgstr "इमेल"
+
+msgid "Enter Your Email Here . . ."
+msgstr "यहाँ आफ्नो इमेल प्रविष्ट गर्नुहोस् . . ."
+
+msgid "Contact Number"
+msgstr "सम्पर्क नम्बर"
+
+msgid "Your Contact Number Here . . ."
+msgstr "तपाईको सम्पर्क नम्बर यहाँ . . ."
+
+msgid "Submit"
+msgstr "पेश गर्नुहोस्"
+
+msgid "Reset"
+msgstr "रिसेट गर्नुहोस्"
+
+msgid "Nepali"
+msgstr "नेपाली"
+
+msgid "English"
+msgstr "अंग्रेजी"

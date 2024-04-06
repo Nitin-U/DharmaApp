@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100..900;1,100..900&display=swap');
+/*Global Font Size/Style CSS Here*/
+* {
+	font-family: "Inter", sans-serif;
+	font-optical-sizing: auto;
+	font-style: normal;
+	font-variation-settings:
+		"slnt" 0;
+	font-size: 17px !important;
+}
+
+h1 {
+	font-family: "Overpass", sans-serif;
+	font-optical-sizing: auto;
+  	font-style: normal;
+	font-size: 40px !important;
+	letter-spacing: -1.5px;
+	margin-bottom: 10px;
+}
+h2 {
+	font-family: "Overpass", sans-serif;
+	font-optical-sizing: auto;
+  	font-style: normal;
+	font-size:30px !important;
+}
+
+a {
+	text-decoration: none;
+}
+
+i.fa-xl {
+	font-size: 20px !important;
+}
+
+i.fa-xs {
+	font-size: 14px !important;
+}
+
+.form-control:not(textarea) {
+	height: 40px;
+}
+
+/*------------------Nav Section Here----------------*/
+body {
+	background-color: #F8F8F8;
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+
+/*Navigation Bar CSS Here*/
+.navbar {
+	background-color: #333333 !important;
+	/* background: transparent !important; */
+	/* padding-top: 0px; */
+	box-shadow: none;
+	-webkit-backdrop-filter: blur(8px);
+	backdrop-filter: blur(8px);
+	transition: all 0.5s;
+}
+
+/* Hamburger Menu Color */
+.custom-toggler.navbar-toggler {
+    border-color: #F8F8F8;
+}         
+.custom-toggler .navbar-toggler-icon {
+	background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='%23F8F8F8' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/*Navigation Bar When Page Scrolls CSS Here*/
+/* .navbar-scrolled {
+	background-color: #EEEEEE !important;
+	padding-top: 10px;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.18), 0 6px 20px 0 rgba(0, 0, 0, 0.13);
+	;
+} */
+
+/*Navigation Bar Link's Dropdown Symbol Removed Here*/
+.navbar .dropdown-toggle::after {
+	display: none !important;
+}
+
+/*Extra Navigation Bar for Contact Info*/
+.nav-extra {
+	background-color: #2E2E2E !important;
+}
+.nav-extra i, .nav-extra p{
+	color: #F8F8F8;
+}
+
+/*Primary Button (The Black Button) CSS Here*/
+.btn.btn-primary {
+	background-color: #333333;
+	border: 2px solid #333333;
+	transition: all 0.5s;
+	box-shadow: none;
+}
+.btn.btn-primary:hover {
+	background-color: #000;
+	/* color: #fff;
+    box-shadow: 2.5px 5px 9px #888888; */
+}
+
+/*Outlined Button's CSS Here*/
+.btn.btn-outline-primary {
+	color: #333333;
+	border: 2px solid #333333;
+	transition: all 0.5s;
+	box-shadow: none;
+}
+.btn.btn-outline-primary:Hover {
+	background-color: #333333;
+	color: white;
+}
+
+/*WishList Button CSS Here*/
+.btn.btn-secondary {
+	color: #F8F8F8;
+	background-color: transparent;
+	border: none;
+	transition: .5s;
+}
+.btn.btn-secondary:hover {
+	color: red;
+}
+
+/*Navigation Bar's Links Here*/
+a.nav-link {
+	padding: 8px;
+	margin: 0 3px;
+	border-radius: 3px;
+	color: #F8F8F8;
+	transition: all 0.5s;
+}
+a.nav-link:hover {
+	background-color: #F8F8F8;
+	color: #333333;
+}
+
+/*------------------Home Search Button Here----------------*/
+.home-newsletter .single {
+	max-width: 100%;
+	margin: 0 auto;
+	text-align: center;
+	position: relative;
+	z-index: 2;
+}
+
+.home-newsletter .single h2 {
+	font-size: 22px;
+	color: white;
+	text-transform: uppercase;
+	margin-bottom: 40px;
+}
+
+.home-newsletter .single .form-control {
+	height: 40px;
+	background: rgba(255, 255, 255, 0.6);
+	border-color: transparent;
+	border-radius: 20px 0 0 20px;
+	border: 2px solid #333333;
+}
+
+.home-newsletter .single .form-control:focus {
+	border: 2px solid #333333;
+}
+
+.home-newsletter .single .btn {
+	min-height: 40px;
+	border-radius: 0 20px 20px 0;
+	background: #333333;
+	color: #fff;
+	transition: all 0.5s;
+}
+
+.home-newsletter .single .btn:hover {
+	background: #000;
+}
+
+.home-newsletter input.form-control{
+	box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15);
+}
+
+h1.display-6 {
+	font-size: 26px;
+}
+
+.text-dark {
+	color: #333333;
+}
+/*------------------Footer Section Here----------------*/
+footer {
+	margin-top: auto;
+	background-color: #333333;
+	color: #F8F8F8;
+	/* border-top: 1px solid rgba(0, 0, 0, 0.100);    */
+}
+
+footer a, a.text-body {
+	color: #F8F8F8;
+	/* border-top: 1px solid rgba(0, 0, 0, 0.100);    */
+}
+
+.copyright-text {
+	background-color: rgba(0, 0, 0, 0.100);
+}
+
+/*------------------Media Query Section Here----------------*/
+/* Media query for medium screens */
+@media (max-width: 992px) {
+
+	* {
+		font-size: 15px !important;
+	}
+
+	h1 {
+		font-size: 35px !important;
+	}
+
+	/*Changing Homepage Search Bar's Width on Medium Screen Devices Here*/
+	/* .home-newsletter .single {
+		max-width: 90%;
+	} */
+}
+
+/* Media query for small screens */
+@media (max-width: 576px) {
+
+	* {
+		font-size: 14px !important;
+	}
+
+	h1 {
+		font-size: 30px !important;
+	}
+	/*Changing Homepage Search Bar's Width On Smaller Devices Here*/
+	/* .home-newsletter .single {
+		max-width: 300px;
+	} */
+
+	/* .nav-extra {
+		display: none;
+	} */
+}

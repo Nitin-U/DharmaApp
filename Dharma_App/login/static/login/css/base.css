@@ -40,6 +40,22 @@ i.fa-xs {
 	height: 40px;
 }
 
+#alert_message {
+	position: fixed;
+	bottom: 0;
+	right: 20px;
+	z-index: 1000;
+}
+.alert-success {
+	background-color: #4EA32A;
+    color: white;
+	border: none;
+}
+.alert-danger {
+	background-color: #741826;
+    color: white;
+	border: none;
+}
 /*------------------Nav Section Here----------------*/
 body {
 	background-color: #F8F8F8;
@@ -132,9 +148,12 @@ a.nav-link {
 	color: #F8F8F8;
 	transition: all 0.5s;
 }
-a.nav-link:hover {
+#navbar-item-link a.nav-link:hover {
 	background-color: #F8F8F8;
 	color: #333333;
+}
+#sidebar-item-link a.nav-link:hover {
+	color: #9370DB;
 }
 
 /*------------------Home Search Button Here----------------*/

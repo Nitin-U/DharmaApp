@@ -1,0 +1,152 @@
+{% extends 'cart/dashboard_base.html' %}
+{% block content_block %}
+{% load static %}
+
+<h3 class="fw-light">Seller Analytic Dashboard</h3>
+<hr>
+<div class="row">
+    <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading fw-bold">Total Orders</div>
+                        <div class="widget-subheading">Monthly Orders</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-success">100</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading fw-bold">Total Orders</div>
+                        <div class="widget-subheading">Yearly Orders</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-success">1000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading fw-bold">Total Profit</div>
+                        <div class="widget-subheading">Yearly Profit</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-success">$ 10000</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading fw-bold">Product Sold</div>
+                        <div class="widget-subheading">Product Count Montly</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-success">99</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 col-xl-4">
+        <div class="card mb-3 widget-content">
+            <div class="widget-content-outer">
+                <div class="widget-content-wrapper">
+                    <div class="widget-content-left">
+                        <div class="widget-heading fw-bold">Product Sold</div>
+                        <div class="widget-subheading">Product Count Yearly</div>
+                    </div>
+                    <div class="widget-content-right">
+                        <div class="widget-numbers text-success">999</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h3 class="fw-light">Active Orders</h3>
+<hr>
+<table class="table align-middle mb-0 bg-white">
+    <thead class="bg-light">
+        <tr>
+            <th>S.N.</th>
+            <th>Name</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>
+                <p class="fw-bold mb-1">Jane Doe</p>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">Kathmandu</p>
+            </td>
+            <td>
+                <span class="badge text-bg-warning">Pending</span>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">
+                    <button class="btn btn-primary">Details</button>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>
+                <p class="fw-bold mb-1">John Doe</p>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">Gorkha</p>
+            </td>
+            <td>
+                <span class="badge text-bg-danger">In Progress</span>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">
+                    <button class="btn btn-primary">Details</button>
+                </p>
+            </td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>
+                <p class="fw-bold mb-1">Jack Doe</p>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">Muktinath</p>
+            </td>
+            <td>
+                <span class="badge text-bg-success">Completed</span>
+            </td>
+            <td>
+                <p class="fw-normal mb-1">
+                    <button class="btn btn-primary">Details</button>
+                </p>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+{% endblock %}

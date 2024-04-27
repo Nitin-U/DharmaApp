@@ -1,0 +1,57 @@
+{% extends "login/base.html" %}
+{% block body_block %}
+{% load static %}
+{% load i18n %}
+
+<div class="container mt-2 mb-5">
+    <h1 class="display-6 fw-bold text-center">{% trans "Request A Quote" %}</h1>
+    <div class="row">
+        <div class="col-lg-6 col-md-8 col-sm-10 mx-auto">
+            <form class="shadow p-4 rounded">
+                <div class="col-md-12">
+                    <label for="fullname" class="form-label">{% trans "Full Name" %}</label>
+                    <input class="form-control" type="text" name="fullname" placeholder="{% trans "Enter Your Name Here . . ." %}">
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="message" class="form-label">{% trans "Message" %}</label>
+                    <textarea name="message" class="form-control" rows="5" placeholder="{% trans "Enter Your Message Here . . ." %}"></textarea>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mt-4">
+                        <label for="stardate" class="form-label">{% trans "Start Date" %}</label>
+                        <input type="date" name="startdate" id="start_date" class="form-control" placeholder="Your Start Date"></input>
+                    </div>
+                    <div class="col-md-6 mt-4">
+                        <label for="enddate" class="form-label">{% trans "End Date" %}</label>
+                        <input type="date" name="enddate" id="end_date" class="form-control" placeholder="Your End Date" onchange="getDays()"></input>
+                    </div>
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="totaldays" class="form-label">{% trans "No. of Days" %}</label>
+                    <input class="form-control" type="number" id="days" name="totaldays" placeholder="{% trans "Total Days . . ." %}">
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="totalguest" class="form-label">{% trans "No. of Guests" %}</label>
+                    <input class="form-control" type="number" name="totalguest" placeholder="{% trans "Total No. of Guests Here . . ." %}">
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="email" class="form-label">{% trans "Email" %}</label>
+                    <input class="form-control" type="email" name="email" placeholder="{% trans "Enter Your Email Here . . ." %}">
+                </div>
+                <div class="col-md-12 mt-4">
+                    <label for="phone" class="form-label">{% trans "Contact Number" %}</label>
+                    <input class="form-control" type="tel" name="phone" placeholder="{% trans "Your Contact Number Here . . ." %}">
+                </div>
+                <div class="d-flex mt-4">
+                    <button type="submit" class="btn btn-primary me-2">{% trans "Submit" %}</button>
+                    <button type="reset" class="btn btn-outline-primary ms-2">{% trans "Reset" %}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="jquery-3.2.1.min.js"></script>
+<script src="{% static 'login/js/request-quote.js' %}"></script>
+
+{% endblock %}

@@ -90,3 +90,9 @@ def searchproduct(request):
         return render(request, 'cart/search.html', {
 
         })
+    
+def dashboard_base(request):
+    return render(request, 'cart/dashboard_base.html')
+
+def seller_dashboard(request):
+    return render(request, 'cart/dashboard.html')

@@ -57,13 +57,14 @@ def register(request):
 
             # Email Address Confirmation Mail
             current_site = get_current_site(request)
-            email_subject = "Confirm your email @ Dharma Saranam Gachhami"
+            email_subject = "Verify your account, VisitHolyPlaces"
             message2 = render_to_string('login/email_confirmation.html',{ 'name' : myuser.username, 'domain' : current_site.domain, 'uid' : urlsafe_base64_encode(force_bytes(myuser.pk)), 'token' : generate_token.make_token(myuser) })
             email = EmailMessage(email_subject, message2, settings.EMAIL_HOST_USER, [myuser.email])
             email.content_subtype = 'html'  # Set content type to HTML
             email.fail_silently = False
             email.send()
 
+            messages.success(request, "Registered successfully, Please check your email")
             return redirect('homepage')
     else:
         print(CreateUserForm.errors)
@@ -106,10 +107,11 @@ def my_login(request):
 
                 
                 redirect_url = reverse('homepage') + f'?username={username}'
+                messages.success(request, "Logged in successfully, Welcome!")
                 return redirect(redirect_url)
             
         # form is not valid or user is not authenticated
-        messages.error(request, "Wrong credentials entered")
+        messages.error(request, "Wrong credentials entered, Please try again")
         return render(request,'login/my_login.html',{'loginform': form})
 
 # def update_user(request):
@@ -181,7 +183,7 @@ def activate(request, uidb64, token):
         myuser.is_active = True
         myuser.save()
         # login(request, myuser)
-        messages.success(request, ("Verification Successful. Please log in now."))
+        messages.success(request, ("Verification Successful. You can log in now."))
         return redirect('my_login')
     else:
         return render(request, 'login/confirmation_fail.html')
@@ -189,3 +191,7 @@ def activate(request, uidb64, token):
 # Coming-soon Page
 def comingsoon(request):
     return render (request, 'login/email_confirmation.html')
+
+# Contact Page
+def contact(request):
+    return render (request, 'login/contact.html')

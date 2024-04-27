@@ -11,6 +11,8 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name="dashboard"),
     path('update_user', views.update_user, name="update_user"),
     path('activate/<uidb64>/<token>', views.activate, name="activate"),
-    path('comingsoon', views.comingsoon, name="comingsoon")
+    path('comingsoon', views.comingsoon, name="comingsoon"),
+    path('contact', views.contact, name="contact")
+    
 
 ]

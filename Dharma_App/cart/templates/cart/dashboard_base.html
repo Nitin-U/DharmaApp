@@ -1,0 +1,82 @@
+{% extends 'login/base.html' %}
+{% block body_block %}
+{% load static %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+<style>
+    .bg-dark{
+        background-color: #2E2E2E !important;
+    }
+    .widget-content{
+        background: rgb(2,0,36);
+        background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(6,51,99,1) 0%, rgba(81,55,206,1) 100%); 
+    }
+    .widget-content-wrapper {
+        display: flex;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    
+    .widget-content-left {
+        flex-grow: 1; /* This makes the left content take up available space */
+        text-align: left;
+        color: white;
+    }
+    
+    .widget-content-right {
+        text-align: right;
+        color: white;
+    }
+    .widget-numbers {
+        font-size: 35px !important;
+        color: white !important;
+        font-weight: bold;
+    }
+    
+</style>
+
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+                </a>
+                <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item" id="sidebar-item-link">
+                    <a href="{% url 'cart:seller_dashboard' %}" class="nav-link align-middle px-0">
+                    <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">Home</span>
+                    </a>
+                    </li>
+                    <li class="nav-item" id="sidebar-item-link">
+                    <a href="{% url 'cart:productlist' %}" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi bi-plus-square"></i> <span class="ms-1 d-none d-sm-inline">Add Product</span></a>
+                    </li>
+                    <li class="nav-item" id="sidebar-item-link">
+                        <a href="#" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi bi-search"></i> <span class="ms-1 d-none d-sm-inline">Manage Product</span> </a>
+                    </li>
+                    <li class="nav-item" id="sidebar-item-link">
+                        <a href="#" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Order</span></a>
+                    </li>
+                    <li class="nav-item" id="sidebar-item-link">
+                        <a href="#" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi bi-clock-history"></i> <span class="ms-1 d-none d-sm-inline">History</span> </a>
+                    </li>
+                    <!-- <li class="nav-item" id="sidebar-item-link">
+                        <a href="#" class="nav-link px-0 align-middle">
+                        <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Orders</span></a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+        <div class="col py-3">
+            {% block content_block %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+ 
+                        
+{% endblock %}

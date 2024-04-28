@@ -96,3 +96,12 @@ def dashboard_base(request):
 
 def seller_dashboard(request):
     return render(request, 'cart/dashboard.html')
+
+def seller_addproduct(request):
+    return render(request, 'cart/dashboard_addproduct.html')
+
+def seller_manageproduct(request):
+    return render(request, 'cart/dashboard_manageproduct.html')
+
+def product_detailpage(request):
+    return render(request, 'cart/product_detail.html')

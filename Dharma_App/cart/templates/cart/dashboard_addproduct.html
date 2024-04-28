@@ -1,0 +1,178 @@
+{% extends 'cart/dashboard_base.html' %}
+{% block content_block %}
+{% load static %}
+
+<style>
+    .bg-custom{
+        background-color: #F0F1F1;
+    }
+    ::placeholder {
+        color: black !important;
+    }
+    .custom-file-button {
+        input[type="file"] {
+            margin-left: -2px !important;
+    
+            &::-webkit-file-upload-button {
+                display: none;
+            }
+            &::file-selector-button {
+                display: none;
+            }
+        }
+    
+        &:hover {
+            label {
+                background-color: #dde0e3;
+                cursor: pointer;
+            }
+        }
+    }
+</style>
+
+<div class="heading-container text-center my-2">
+    <h1 class="display-6 fw-bold">Add Package</h1>
+</div>
+
+<div class="container mb-4 col-sm-10">
+    <form method="" class="row g-3 mt-2">
+        <div class="row">
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-box"></i></span>
+                <input class="form-control bg-custom" placeholder="Enter Package Name . . ." type="text">
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"></i></span>
+                <select class="form-select bg-custom" aria-label="Default select example">
+                    <option selected>--Select District--</option>
+                    <option value="1">District 1</option>
+                    <option value="2">District 2</option>
+                    <option value="3">District 3</option>
+                    <option value="3">District 4</option>
+                    <option value="3">District 5</option>
+                  </select>
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-dot"></i></span>
+                <select class="form-select bg-custom" aria-label="Default select example">
+                    <option selected>--Select City--</option>
+                    <option value="1">City 1</option>
+                    <option value="2">City 2</option>
+                    <option value="3">City 3</option>
+                    <option value="3">City 4</option>
+                    <option value="3">City 5</option>
+                  </select>
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-location-crosshairs"></i></span>
+                <select class="form-select bg-custom" aria-label="Default select example">
+                    <option selected>--Select Holy Places--</option>
+                    <option value="1">Holy Place 1</option>
+                    <option value="2">Holy Place 2</option>
+                    <option value="3">Holy Place 3</option>
+                    <option value="3">Holy Place 4</option>
+                    <option value="3">Holy Place 5</option>
+                  </select>
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-clock"></i></span>
+                <input class="form-control bg-custom" placeholder="Enter Duration  . . ." type="number">
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-dollar-sign"></i></i></span>
+                <input class="form-control bg-custom" placeholder="Rate per Head . . ." type="text">
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-hourglass-start"></i></span>
+                <input class="form-control bg-custom" type="text" placeholder="Start Date . . ."
+                        onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+            </div>
+            
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-hourglass-end"></i></span>
+                <input class="form-control bg-custom" type="text" placeholder="End Date . . ."
+                        onfocus="(this.type='date')"
+                        onblur="(this.type='text')">
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-car"></i></i></span>
+                <select class="form-select bg-custom" aria-label="Default select example">
+                    <option selected>--Pickup and Drop location--</option>
+                    <option value="1">Location 1</option>
+                    <option value="1">Location 2</option>
+                    <option value="1">Location 3</option>
+                </select>
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-hotel"></i></i></span>
+                <select class="form-select bg-custom" aria-label="Default select example">
+                    <option selected>--Accomodation Type--</option>
+                    <option value="1">Hotel Star 1</option>
+                    <option value="1">Hotel Star 2</option>
+                    <option value="1">Hotel Star 3</option>
+                    <option value="1">Hotel Star 4</option>
+                    <option value="1">Hotel Star 5</option>
+                </select>
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-bowl-food"></i></span>
+                <select class="form-select bg-custom" aria-label="Default select example">
+                    <option selected>--Fooding--</option>
+                    <option value="1">Breakfast/ Lunch/ Dinner</option>
+                    <option value="1">Breakfast</option>
+                    <option value="1">Lunch</option>
+                    <option value="1">Dinner</option>
+                    <option value="1">None</option>
+                </select>
+            </div>
+
+            <div class="col-md-12 input-group mb-3">
+                
+                <div class="form-check me-3">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                    <label class="form-check-label" for="exampleRadios1">
+                      Transportation Included
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+                    <label class="form-check-label" for="exampleRadios2">
+                      No Transportation Included
+                    </label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload Thumbnail Images</label>
+                <div class="input-group custom-file-button">
+                    <label class="input-group-text" for="inputGroupFile"><i class="fa-solid fa-image"></i></label>
+                    <input type="file" class="form-control bg-custom" id="formFile">
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="formFile" class="form-label">Upload Multiple Images</label>
+                <div class="input-group custom-file-button">
+                    <label class="input-group-text" for="inputGroupFile"><i class="fa-solid fa-images"></i></label>
+                    <input type="file" class="form-control bg-custom" id="formFileMultiple" multiple>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="d-grid">
+                    <button class="btn btn-dark" type="submit">Submit</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock %}

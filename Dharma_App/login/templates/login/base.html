@@ -74,7 +74,13 @@
                {% if user.is_authenticated %}
                <li class="nav-item dropdown" id="navbar-item-link">
                   <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                     <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                     <img src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" alt="hugenerd" width="30" height="30" class="rounded-circle">
+                     <!-- {% if User_Image %}
+                     <img class="rounded-circle" src="{{ User_Image.url }}" alt="User Image" width="30" height="30">
+ 
+                     {% else %}
+                           <img class="rounded-circle" src="https://static.vecteezy.com/system/resources/previews/005/544/718/non_2x/profile-icon-design-free-vector.jpg" width="30" height="30">
+                     {% endif %} -->
                   </a>
                   <ul class="dropdown-menu">
                      <li><a class="dropdown-item text-center">{{user.username}}</a></li>

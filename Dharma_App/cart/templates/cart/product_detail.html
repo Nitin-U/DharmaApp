@@ -1,0 +1,252 @@
+{% extends "login/base.html" %}
+{% block body_block %}
+{% load static %}
+
+<style>
+    body {
+        background-color: #ecedee
+    }
+    
+    .card {
+        border: none;
+        overflow: hidden
+    }
+    
+    .thumbnail_images ul {
+        list-style: none;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        margin-top: 10px
+    }
+    
+    .thumbnail_images ul li {
+        margin: 5px;
+        padding: 10px;
+        border: 2px solid #eee;
+        cursor: pointer;
+        transition: all 0.5s
+    }
+    
+    .thumbnail_images ul li:hover {
+        border: 2px solid #000
+    }
+    
+    .main_image {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-bottom: 1px solid #eee;
+        height: 400px;
+        width: 100%;
+        overflow: hidden
+    }
+    
+    .heart {
+        height: 29px;
+        width: 29px;
+        background-color: #eaeaea;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center
+    }
+    
+    .content p {
+        font-size: 12px
+    }
+    
+    .ratings span {
+        font-size: 14px;
+        margin-left: 12px
+    }
+    
+    .colors {
+        margin-top: 5px
+    }
+    
+    .colors ul {
+        list-style: none;
+        display: flex;
+        padding-left: 0px
+    }
+    
+    .colors ul li {
+        height: 20px;
+        width: 20px;
+        display: flex;
+        border-radius: 50%;
+        margin-right: 10px;
+        cursor: pointer
+    }
+    
+    .colors ul li:nth-child(1) {
+        background-color: #6c704d
+    }
+    
+    .colors ul li:nth-child(2) {
+        background-color: #96918b
+    }
+    
+    .colors ul li:nth-child(3) {
+        background-color: #68778e
+    }
+    
+    .colors ul li:nth-child(4) {
+        background-color: #263f55
+    }
+    
+    .colors ul li:nth-child(5) {
+        background-color: black
+    }
+    
+    .right-side {
+        position: relative
+    }
+    
+    .search-option {
+        position: absolute;
+        background-color: #000;
+        overflow: hidden;
+        align-items: center;
+        color: #fff;
+        width: 200px;
+        height: 200px;
+        border-radius: 49% 51% 50% 50% / 68% 69% 31% 32%;
+        left: 30%;
+        bottom: -250px;
+        transition: all 0.5s;
+        cursor: pointer
+    }
+    
+    .search-option .first-search {
+        position: absolute;
+        top: 20px;
+        left: 90px;
+        font-size: 20px;
+        opacity: 1000
+    }
+    
+    .search-option .inputs {
+        opacity: 0;
+        transition: all 0.5s ease;
+        transition-delay: 0.5s;
+        position: relative
+    }
+    
+    .search-option .inputs input {
+        position: absolute;
+        top: 200px;
+        left: 30px;
+        padding-left: 20px;
+        background-color: transparent;
+        width: 300px;
+        border: none;
+        color: #fff;
+        border-bottom: 1px solid #eee;
+        transition: all 0.5s;
+        z-index: 10
+    }
+    
+    .search-option .inputs input:focus {
+        box-shadow: none;
+        outline: none;
+        z-index: 10
+    }
+    
+    .search-option:hover {
+        border-radius: 0px;
+        width: 100%;
+        left: 0px
+    }
+    
+    .search-option:hover .inputs {
+        opacity: 1
+    }
+    
+    .search-option:hover .first-search {
+        left: 27px;
+        top: 25px;
+        font-size: 15px
+    }
+    
+    .search-option:hover .inputs input {
+        top: 20px
+    }
+    
+    .search-option .share {
+        position: absolute;
+        right: 20px;
+        top: 22px
+    }
+</style>
+
+<div class="container mt-5 mb-5">
+    <div class="card">
+       <div class="row g-0">
+          <div class="col-md-6 border-end">
+             <div class="d-flex flex-column justify-content-center">
+                <div class="main_image">	<img src="https://images.pexels.com/photos/3352873/pexels-photo-3352873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" id="main_product_image" width="350">	</div>
+                <div class="thumbnail_images">
+                   <ul id="thumbnail">
+                      <li><img onclick="changeImage(this)" src="https://images.pexels.com/photos/3352873/pexels-photo-3352873.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="70"></li>
+                      <li><img onclick="changeImage(this)" src="https://images.pexels.com/photos/2902939/pexels-photo-2902939.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="70"></li>
+                      <li><img onclick="changeImage(this)" src="https://images.pexels.com/photos/1531660/pexels-photo-1531660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" width="70"></li>
+                   </ul>
+                </div>
+             </div>
+          </div>
+          <div class="col-md-6">
+             <div class="p-3 right-side">
+                <div class="d-flex justify-content-between  justify-content-center">
+                   <h2>Package 1</h2>
+                   <span class="heart"><i class="fa-solid fa-heart"></i></span>	
+                </div>
+                <div class="mt-3 fw-light">
+                   <p>Description Here</p>
+                </div>
+                <div class="row">
+                    <div class="col-3">
+                        Check In Date: 2024-5-1
+                    </div>
+                    <div class="col-3">
+                        Check Out Date: 2024-5-5
+                    </div>
+                    <div class="col-3">
+                        Number of Guests: 2
+                    </div>
+                </div>
+                <h2 class="mt-3">$430.99</h2>
+                <div class="ratings d-flex flex-row mt-3">
+                   <div class="d-flex flex-row">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-regular fa-star"></i>
+                   </div>
+                   <span>441 reviews</span>	
+                </div>
+
+                <p class="mt-3 fw-light">Foods are included Breakfast, Lunch and Dinner. Customer can purchase other food and beverages in the hotel's restaurant which are not included in the hotel/service package</p>
+
+                <p class="mt-3 fw-light">Airport and bus station pick up and drop instruction for custormer.							
+                </p>
+                
+                <div class="buttons d-flex flex-row mt-3 gap-3">	<button class="btn btn-primary">Buy Now</button>	<button class="btn btn-outline-primary">Add to Cart</button>	</div>
+                
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
+ 
+
+<script>
+    function changeImage(element) {
+        var main_prodcut_image = document.getElementById('main_product_image');
+        main_prodcut_image.src = element.src;
+  }
+</script>
+
+{% endblock %}
